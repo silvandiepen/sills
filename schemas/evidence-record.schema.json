@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/evidence-record.schema.json",
+  "title": "Sills evidence record",
+  "type": "object",
+  "required": ["id", "kind", "source", "capturedAt"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^EVD-[A-Z0-9-]+$" },
+    "kind": { "enum": ["source", "screenshot", "trace", "network", "log", "benchmark", "accessibility-tree", "command", "document", "manual-observation"] },
+    "source": { "type": "string", "minLength": 1 },
+    "capturedAt": { "type": "string", "format": "date-time" },
+    "hash": { "type": "string" },
+    "path": { "type": "string" },
+    "summary": { "type": "string" },
+    "sensitivity": { "enum": ["public", "internal", "sensitive", "redacted"] },
+    "metadata": { "type": "object", "additionalProperties": true }
+  },
+  "additionalProperties": false
+}
