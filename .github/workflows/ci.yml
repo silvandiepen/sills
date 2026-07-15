@@ -59,8 +59,12 @@ jobs:
       - run: npm run pack:check
       - run: npm run build:docs
       - name: Commit generated report standard
-        if: github.event_name == 'pull_request' && hashFiles('.report-standard/trigger') != ''
+        if: github.event_name == 'pull_request'
         run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
