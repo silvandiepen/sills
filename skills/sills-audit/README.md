@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/silvandiepen/sills/main/sills.svg" alt="Sills" width="180">
 </p>
 
-Run one complete, evidence-based project audit across thirteen specialist disciplines.
+Run one complete, evidence-based project audit across fourteen specialist disciplines.
 
 ## Install the complete suite
 
@@ -12,7 +12,7 @@ Run one complete, evidence-based project audit across thirteen specialist discip
 npx sills-audit install
 ```
 
-This installs the umbrella skill and all thirteen specialists for Codex and Claude Code. Use `--codex`, `--claude`, or `--global` to narrow installation.
+This installs the umbrella skill and all fourteen specialists for Codex and Claude Code. Use `--codex`, `--claude`, or `--global` to narrow installation.
 
 ## Use
 
@@ -22,7 +22,7 @@ $sills-audit Do a full audit of this project.
 
 ## Specialist coverage
 
-Accessibility, product experience, content quality, codebase architecture, security, performance, design systems, release readiness, localization, testing strategy, privacy and trust, SEO, and API design.
+Accessibility, product experience, content quality, codebase architecture, security, performance, design systems, release readiness, localization, testing strategy, privacy and trust, SEO, API design, and agent readiness.
 
 ## What it gives you
 

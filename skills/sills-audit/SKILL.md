@@ -1,10 +1,10 @@
 ---
 name: sills-audit
-description: Run a complete, evidence-based, report-only audit of a project by coordinating the full Sills specialist suite across accessibility, product experience, content, architecture, security, performance, design systems, release readiness, localization, testing strategy, privacy and trust, SEO, and API design. Use for full audits, release decisions, changed-code reviews, CI, verification, web-first runtime analysis, and supported iOS projects.
+description: Run a complete, evidence-based, report-only audit of a project by coordinating the full Sills specialist suite across accessibility, product experience, content, architecture, security, performance, design systems, release readiness, localization, testing strategy, privacy and trust, SEO, API design, and agent readiness. Use for full audits, release decisions, changed-code reviews, CI, verification, web-first runtime analysis, supported iOS projects, and repository readiness for Claude Code and Codex.
 license: MIT
 metadata:
   author: Sil van Diepen
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # Sills Full Audit
@@ -17,7 +17,7 @@ Coordinate all applicable Sills specialist audits and produce one coherent produ
 - Do not install dependencies into the project, change lockfiles, run migrations, invent environment variables, seed production data, deploy, publish, or approve releases.
 - Use isolated tools, temporary caches, existing project tools, or reduced coverage.
 - Reuse evidence and sessions across specialists.
-- Never equate automated passes with compliance, security, readiness, rankings, performance, or defect-free status.
+- Never equate automated passes with compliance, security, readiness, rankings, performance, agent readiness, or defect-free status.
 - Read project documentation before applying general guidance.
 - Include evidence-backed positive findings.
 
@@ -38,6 +38,7 @@ Locate the sibling installed skills and apply all that are relevant:
 - `$sills-audit-privacy-and-trust`
 - `$sills-audit-seo`
 - `$sills-audit-api-design`
+- `$sills-audit-agent-readiness`
 
 Do not duplicate complete specialist methodologies inside this skill. Read each applicable `SKILL.md` and only the references relevant to the discovered scope.
 
@@ -51,15 +52,15 @@ Default to `full` mode and `standard` depth when source and runtime are availabl
 
 ## Workflow
 
-1. **Read intent and constraints.** Read repository instructions, requirements, decisions, product, design, content, architecture, security, privacy, operations, release, localization, testing, API, SEO, and prior-audit documentation.
-2. **Discover the project.** Inventory applications, packages, platforms, routes, roles, workflows, states, components, services, integrations, APIs, data flows, trust boundaries, CI/CD, deployments, and public surfaces.
-3. **Establish scope and coverage.** Prioritise primary journeys, shared foundations, high-risk operations, release-critical surfaces, and affected dependants in changed mode.
+1. **Read intent and constraints.** Read repository instructions, agent guidance, requirements, decisions, product, design, content, architecture, security, privacy, operations, release, localization, testing, API, SEO, and prior-audit documentation.
+2. **Discover the project.** Inventory applications, packages, platforms, routes, roles, workflows, states, components, services, integrations, APIs, data flows, trust boundaries, CI/CD, deployments, public surfaces, and agent instruction scopes.
+3. **Establish scope and coverage.** Prioritise primary journeys, shared foundations, high-risk operations, release-critical surfaces, agent-critical workflows, and affected dependants in changed mode.
 4. **Prepare the audit directory.** Use the bundled script or equivalent structure. Append `-02`, `-03`, and so on for repeated dates.
 5. **Start runtime safely.** Use documented commands and existing dependencies without changing the project.
-6. **Gather shared evidence.** Reuse screenshots, traces, logs, requests, accessibility snapshots, measurements, source mappings, tool versions, and timestamps across specialists.
+6. **Gather shared evidence.** Reuse screenshots, traces, logs, requests, accessibility snapshots, measurements, source mappings, documentation inventories, command results, tool versions, and timestamps across specialists.
 7. **Run applicable specialists.** Skip only genuinely irrelevant audits and explain why.
-8. **Deduplicate and correlate.** Preserve specialist IDs and connect shared roots across product, implementation, delivery, and operations.
-9. **Decide blockers and priority.** Consider task blockage, user impact, affected roles, frequency, recoverability, security, privacy, data, financial, operational, release, and systemic risk.
+8. **Deduplicate and correlate.** Preserve specialist IDs and connect shared roots across product, implementation, delivery, operations, documentation, and agent context.
+9. **Decide blockers and priority.** Consider task blockage, user impact, affected roles, frequency, recoverability, security, privacy, data, financial, operational, release, documentation, and systemic risk.
 10. **Write coherent reports.** Human and machine-readable outputs must agree.
 11. **Prepare remediation handoff.** Treat `report.json` as authoritative, preserve evidence and positive patterns, and verify each resolved finding.
 12. **Validate integrity.** Confirm no changes outside the audit directory, complete coverage labels, valid IDs, redaction, and explicit limitations.
@@ -79,6 +80,7 @@ Default to `full` mode and `standard` depth when source and runtime are availabl
 - `reports/privacy-and-trust.md`
 - `reports/seo.md`
 - `reports/api-design.md`
+- `reports/agent-readiness.md`
 
 ## Modes
 

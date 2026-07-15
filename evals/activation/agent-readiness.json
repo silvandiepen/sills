@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": [
+    {"prompt":"Use $sills-audit-agent-readiness to audit this repository.","expectedSkill":"sills-audit-agent-readiness","shouldActivate":true},
+    {"prompt":"Review whether AGENTS.md, CLAUDE.md, decisions, architecture, and project commands give coding agents enough reliable context. Write a report only.","expectedSkill":"sills-audit-agent-readiness","shouldActivate":true},
+    {"prompt":"Find stale or contradictory agent instructions and document which project workflows can be verified safely.","expectedSkill":"sills-audit-agent-readiness","shouldActivate":true},
+    {"prompt":"Create AGENTS.md, architecture.md, and decisions.md for this repository.","expectedSkill":"sills-audit-agent-readiness","shouldActivate":false,"reason":"The audit is report-only and must not create or rewrite project documentation."},
+    {"prompt":"Fix all missing AI documentation and commit it.","expectedSkill":"sills-audit-agent-readiness","shouldActivate":false,"reason":"Remediation belongs to a separate implementation skill."}
+  ]
+}

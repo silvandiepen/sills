@@ -20,7 +20,8 @@ const names = [
   "sills-audit-testing-strategy",
   "sills-audit-privacy-and-trust",
   "sills-audit-seo",
-  "sills-audit-api-design"
+  "sills-audit-api-design",
+  "sills-audit-agent-readiness"
 ];
 const packages = [{ skillName: 'sills-audit', packageRoot: selfRoot }];
 for (const name of names) packages.push({ skillName: name, packageRoot: packageRootFor(name) });
