@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFile, readdir } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 const root = resolve(new URL('..', import.meta.url).pathname);
 
@@ -16,4 +17,19 @@ test('umbrella package depends on and installs every specialist skill', async ()
     assert.equal(pkg.dependencies[name], '0.1.0', `${name} dependency missing`);
     assert.match(bin, new RegExp(name), `${name} installer entry missing`);
   }
+});
+
+test('umbrella CLI can run directly from a source checkout', () => {
+  const result = spawnSync(process.execPath, [
+    join(root, 'skills', 'sills-audit', 'bin', 'sills-audit.mjs'),
+    '--dry-run',
+    '--target',
+    join(root, '.tmp-test-install')
+  ], {
+    cwd: root,
+    encoding: 'utf8'
+  });
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /Would install sills-audit for custom:/);
+  assert.match(result.stdout, /Would install sills-audit-api-design for custom:/);
 });
