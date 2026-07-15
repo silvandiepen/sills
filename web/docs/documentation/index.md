@@ -1,6 +1,6 @@
 ---
 title: Documentation
-description: Read Sills guides for reports, platforms, integrations, development, and limitations.
+description: Read Sills guides for reports, examples, platforms, integrations, development, and limitations.
 slug: /documentation
 section: Documentation
 order: 2
@@ -8,11 +8,15 @@ order: 2
 
 # Documentation
 
-Use these sections to understand how Sills reports work, where it can run, how it integrates with agent tooling, and how the repository is maintained.
+Use these sections to understand how Sills reports work, what generated audit output looks like, where it can run, how it integrates with agent tooling, and how the repository is maintained.
 
 ## [Reports](/documentation/reports)
 
 Report files, findings, evidence, severity, confidence, and remediation handoff.
+
+## [Example reports](/documentation/examples)
+
+Synthetic report examples that show summary, findings, structured output, and handoff files.
 
 ## [Platforms](/documentation/platforms)
 
