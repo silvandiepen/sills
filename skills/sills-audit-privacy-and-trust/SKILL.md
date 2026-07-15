@@ -1,0 +1,85 @@
+---
+name: sills-audit-privacy-and-trust
+description: Audit a product, repository, and data flow for privacy, transparency, consent, user control, retention, deletion, tracking, permissions, sensitive data, minors, AI disclosure, dark patterns, and trustworthiness. Use for privacy-by-design reviews, analytics and advertising inventories, account deletion, export, consent interfaces, data minimization, third-party processors, policy-to-product consistency, and high-stakes user communications.
+license: MIT
+metadata:
+  author: Sil van Diepen
+  version: "0.1.0"
+---
+
+# Privacy and Trust Audit
+
+Compare what the product says, what the interface asks, and what the implementation appears to collect or expose.
+
+## Non-negotiable contract
+
+- Do not modify application code, content, configuration, dependencies, lockfiles, generated files, data, or repository structure.
+- Create files only inside the selected dated audit directory.
+- Suggestions and verification steps are allowed; fixes are not.
+- Never invent evidence, selectors, source locations, standards, measurements, screenshots, traces, runtime behaviour, field data, or user research.
+- Distinguish direct observation, automated detection, documentation, inference, and manual-review requirements.
+- Include concrete positive findings. Do not manufacture praise.
+- Read project documentation and repository instructions before applying general practice.
+- A clean automated result is not proof of quality, compliance, security, readiness, or absence of defects.
+
+
+## Supported modes
+
+- `source`: repository inspection only.
+- `runtime`: running product inspection only.
+- `full`: combine source and runtime evidence.
+- `changed`: focus on a branch, commit, or pull-request diff and affected areas.
+- `ci`: non-interactive execution with machine-readable output.
+- `verify`: retest findings from an earlier report without changing the product.
+
+Depth is independent: `quick`, `standard`, or `deep`. Default to `full` and `standard` when possible.
+
+
+## Before auditing
+
+1. Read repository instructions, product documentation, requirements, decisions, prior audits, and domain-specific guidance.
+2. Determine the project type, platforms, environments, roles, intended users, runtime availability, and safe test boundaries.
+3. Build a coverage inventory before selecting representative workflows, states, modules, services, or routes.
+4. Prefer existing tools and evidence. Run additional tooling only in isolation and never alter the audited project.
+5. Redact secrets and personal data from reports and evidence.
+
+## Output
+
+Default to `audit/YYYY-MM-DD/`; use `-02`, `-03`, and so on for repeated runs on the same date.
+
+Write the shared Sills files plus the specialist report under `reports/`. Every finding must include category, kind, title, severity when applicable, release-blocker status, confidence, origin, scope, impact, evidence or manual-review reason, reproduction when relevant, expected and observed results, recommendation, and verification instructions.
+
+Use the specialist finding prefix documented below. Human-readable and structured reports must agree.
+
+
+- Specialist report: `reports/privacy-and-trust.md`
+- Finding IDs: `TRUST-0001`, `TRUST-0002`, and so on.
+
+## Audit procedure
+
+1. Read privacy notices, consent language, data maps, product requirements, SDK inventories, and retention documentation.
+2. Inventory collected, inferred, transmitted, stored, logged, displayed, exported, and deleted data by role and workflow.
+3. Compare stated purposes and user controls with source, runtime requests, permissions, and third-party integrations.
+4. Inspect high-stakes, children, health, financial, location, communication, biometric, and AI-related contexts carefully.
+5. Identify manipulative choice architecture, hidden defaults, misleading reassurance, or asymmetrical cancellation and deletion.
+6. Map findings to relevant technical or regulatory frameworks only as context; do not provide legal conclusions.
+7. Record evidence-backed positive findings, limitations, and untested areas.
+8. Write the specialist report, structured findings, and remediation handoff.
+9. Validate that no file outside the audit directory changed.
+
+## Severity and confidence
+
+- Severity: `critical`, `major`, `moderate`, `minor`, `observation`.
+- Confidence: `confirmed`, `high`, `medium`, `low`, `requires-manual-verification`.
+- `releaseBlocker` is a separate boolean.
+
+Do not produce a single artificial overall score. Prefer finding counts, blockers, coverage, measured values where meaningful, and category assessments such as `strong`, `acceptable`, `needs work`, or `critical`.
+
+## References
+
+Read only the references relevant to the discovered scope:
+
+- `references/methodology.md`
+- `references/checklist.md`
+- `references/evidence-and-reporting.md`
+- `references/platforms-and-tools.md`

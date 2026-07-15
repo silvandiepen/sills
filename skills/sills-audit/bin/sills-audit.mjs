@@ -7,16 +7,22 @@ import { installSkillSuite, printInstallResult } from 'sills-audit-installer';
 const require = createRequire(import.meta.url);
 const selfRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 const names = [
-  'sills-audit-accessibility',
-  'sills-audit-experience',
-  'sills-audit-content',
-  'sills-audit-architecture',
-  'sills-audit-security'
+  "sills-audit-accessibility",
+  "sills-audit-experience",
+  "sills-audit-content",
+  "sills-audit-architecture",
+  "sills-audit-security",
+  "sills-audit-performance",
+  "sills-audit-design-system",
+  "sills-audit-release-readiness",
+  "sills-audit-localization",
+  "sills-audit-testing-strategy",
+  "sills-audit-privacy-and-trust",
+  "sills-audit-seo",
+  "sills-audit-api-design"
 ];
 const packages = [{ skillName: 'sills-audit', packageRoot: selfRoot }];
-for (const name of names) {
-  packages.push({ skillName: name, packageRoot: dirname(require.resolve(`${name}/package.json`)) });
-}
+for (const name of names) packages.push({ skillName: name, packageRoot: dirname(require.resolve(`${name}/package.json`)) });
 
 try {
   const result = await installSkillSuite({ packages });

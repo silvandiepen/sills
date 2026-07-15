@@ -1,0 +1,6 @@
+interface:
+  display_name: "Testing Strategy Audit"
+  short_description: "Risk coverage, test architecture, reliability, speed, and maintainability audit."
+  default_prompt: "Use $sills-audit-testing-strategy to audit this project and write a complete dated report without modifying the product."
+policy:
+  allow_implicit_invocation: true

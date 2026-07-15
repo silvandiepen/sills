@@ -1,0 +1,6 @@
+interface:
+  display_name: "Design System Audit"
+  short_description: "Tokens, components, states, adoption, governance, and visual-system audit."
+  default_prompt: "Use $sills-audit-design-system to audit this project and write a complete dated report without modifying the product."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,40 @@
+{
+  "name": "sills-audit-localization",
+  "version": "0.1.0",
+  "description": "Internationalization, translation, locale, RTL, formatting, and content-fit audit",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "sills-audit-localization": "bin/install.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "bin",
+    "references",
+    "scripts",
+    "templates",
+    "agents",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "sills-audit-installer": "0.1.0"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude",
+    "codex",
+    "audit",
+    "localization",
+    "quality"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/sills.git",
+    "directory": "skills/sills-audit-localization"
+  },
+  "homepage": "https://github.com/silvandiepen/sills/tree/main/skills/sills-audit-localization"
+}

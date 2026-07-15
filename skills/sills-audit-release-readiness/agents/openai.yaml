@@ -1,0 +1,6 @@
+interface:
+  display_name: "Release Readiness Audit"
+  short_description: "Cross-functional launch risk, operations, rollback, and evidence audit."
+  default_prompt: "Use $sills-audit-release-readiness to audit this project and write a complete dated report without modifying the product."
+policy:
+  allow_implicit_invocation: true
