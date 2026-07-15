@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/audit-capability.schema.json",
+  "title": "Sills audit capability declaration",
+  "type": "object",
+  "required": ["audit", "requires"],
+  "properties": {
+    "audit": { "type": "string", "minLength": 1 },
+    "requires": {
+      "type": "object",
+      "properties": {
+        "source": { "type": "boolean", "default": false },
+        "runtime": { "type": "boolean", "default": false },
+        "browser": { "type": "boolean", "default": false },
+        "iosSimulator": { "type": "boolean", "default": false },
+        "androidEmulator": { "type": "boolean", "default": false },
+        "authenticatedSession": { "type": "boolean", "default": false },
+        "roles": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "tools": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    },
+    "optional": {
+      "type": "object",
+      "properties": {
+        "runtime": { "type": "boolean" },
+        "browser": { "type": "boolean" },
+        "authenticatedSession": { "type": "boolean" },
+        "tools": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    },
+    "fallback": { "enum": ["skip", "reduced-coverage", "source-only", "manual-review"] }
+  },
+  "additionalProperties": false
+}
