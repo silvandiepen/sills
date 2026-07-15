@@ -1,6 +1,6 @@
 ---
 title: Documentation
-description: Read Sills guides for reports, examples, platforms, integrations, development, and limitations.
+description: Read Sills guides for reports, examples, platforms, integrations, development, limitations, and legal notices.
 slug: /documentation
 section: Documentation
 order: 2
@@ -33,3 +33,7 @@ Repository architecture, contribution rules, evaluation, and release process.
 ## [Limitations](/documentation/limitations)
 
 What Sills can inspect, what remains manual, and what audit results cannot prove.
+
+## [Legal](/documentation/legal)
+
+Privacy policy, terms of service, and audit disclaimers for the website and packages.
