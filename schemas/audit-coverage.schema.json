@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/audit-coverage.schema.json",
+  "title": "Sills audit coverage",
+  "type": "object",
+  "required": ["dimensions", "limitations"],
+  "properties": {
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["status", "tested", "applicable"],
+        "properties": {
+          "status": { "enum": ["complete", "substantial", "partial", "minimal", "not-tested", "not-applicable"] },
+          "tested": { "type": "integer", "minimum": 0 },
+          "applicable": { "type": "integer", "minimum": 0 },
+          "roles": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "environments": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "notes": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "qualityGate": { "enum": ["sufficient", "sufficient-with-limitations", "insufficient"] }
+  },
+  "additionalProperties": false
+}
