@@ -1,7 +1,7 @@
 ---
 title: Integrations
 description: Install, invoke, validate, and publish Sills through Codex, Claude Code, GitHub Actions, and npm.
-slug: /integrations
+slug: /documentation/integrations
 section: Integrations
 order: 5
 archive: sections

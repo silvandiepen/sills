@@ -1,7 +1,7 @@
 ---
 title: Reports
 description: Understand Sills report files, findings, evidence, severity, confidence, and handoff.
-slug: /reports
+slug: /documentation/reports
 section: Reports
 order: 3
 archive: sections

@@ -1,7 +1,7 @@
 ---
 title: Platforms
 description: See how Sills applies to web, iOS, Electron, and monorepo projects.
-slug: /platforms
+slug: /documentation/platforms
 section: Platforms
 order: 4
 archive: sections

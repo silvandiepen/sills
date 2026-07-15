@@ -1,7 +1,7 @@
 ---
 title: Severity and release blockers
 description: How Sills prioritises impact without producing artificial overall scores.
-slug: /reports/severity
+slug: /documentation/reports/severity
 section: Reports
 order: 23
 ---

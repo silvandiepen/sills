@@ -1,7 +1,7 @@
 ---
 title: Repository architecture
 description: Understand the Sills monorepo and package boundaries.
-slug: /development/architecture
+slug: /documentation/development/architecture
 section: Guide
 order: 28
 ---

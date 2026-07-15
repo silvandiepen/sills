@@ -1,7 +1,7 @@
 ---
 title: Codex
 description: Install and invoke Sills in OpenAI Codex.
-slug: /integrations/codex
+slug: /documentation/integrations/codex
 section: Guide
 order: 24
 ---

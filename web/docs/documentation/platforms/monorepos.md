@@ -1,7 +1,7 @@
 ---
 title: Monorepos
 description: Discover and audit multiple applications, packages, services, and shared systems.
-slug: /platforms/monorepos
+slug: /documentation/platforms/monorepos
 section: Platforms
 order: 33
 ---

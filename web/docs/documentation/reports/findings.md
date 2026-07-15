@@ -1,7 +1,7 @@
 ---
 title: Findings
 description: Understand the fields and lifecycle of a Sills finding.
-slug: /reports/findings
+slug: /documentation/reports/findings
 section: Guide
 order: 21
 ---

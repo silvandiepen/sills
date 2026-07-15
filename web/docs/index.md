@@ -41,10 +41,6 @@ Sills defaults to source and runtime analysis when both are available, standard 
 
 Every audit writes human-readable Markdown, structured JSON, coverage data, evidence, raw tool results, positive findings, limitations, and a handoff file for a later remediation agent. Start with `summary.md`, use `report.md` for detail, and treat `report.json` as authoritative for automation.
 
-## CI and publishing
-
-CI validates skills, docs, tests, and package tarballs. The docs workflow builds the Girky site from `web/docs` and deploys it to Cloudflare Pages. The npm release workflow publishes only packages whose packed contents changed from `@latest`.
-
 ## Report-only by design
 
 Audit skills do not fix code, edit content, install dependencies into the project, change configuration, or mutate product data. They may write only inside the selected dated audit directory.

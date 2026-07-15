@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions
 description: Validate and publish Sills through GitHub Actions.
-slug: /integrations/github-actions
+slug: /documentation/integrations/github-actions
 section: Guide
 order: 26
 ---

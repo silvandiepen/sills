@@ -1,7 +1,7 @@
 ---
 title: Development
 description: Contribute to Sills, understand the repository, run evaluations, and release packages.
-slug: /development
+slug: /documentation/development
 section: Development
 order: 6
 archive: sections

@@ -1,7 +1,7 @@
 ---
 title: Evaluation
 description: How Sills skills are tested against fixtures and baselines.
-slug: /development/evaluation
+slug: /documentation/development/evaluation
 section: Guide
 order: 29
 ---

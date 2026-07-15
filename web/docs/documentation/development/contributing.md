@@ -1,7 +1,7 @@
 ---
 title: Contributing
 description: Add or improve Sills skills and references.
-slug: /development/contributing
+slug: /documentation/development/contributing
 section: Guide
 order: 30
 ---

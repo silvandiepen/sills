@@ -1,7 +1,7 @@
 ---
 title: iOS
 description: Audit SwiftUI and UIKit projects with source analysis and simulator evidence where available.
-slug: /platforms/ios
+slug: /documentation/platforms/ios
 section: Platforms
 order: 31
 ---

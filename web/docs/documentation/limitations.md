@@ -1,7 +1,7 @@
 ---
 title: Limitations
 description: Understand what Sills can and cannot prove.
-slug: /limitations
+slug: /documentation/limitations
 section: Guide
 order: 8
 ---

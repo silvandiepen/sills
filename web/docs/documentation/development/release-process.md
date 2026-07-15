@@ -1,7 +1,7 @@
 ---
 title: Release process
 description: Publish all Sills packages with one protected npm token.
-slug: /development/release-process
+slug: /documentation/development/release-process
 section: Guide
 order: 31
 ---

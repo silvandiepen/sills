@@ -1,7 +1,7 @@
 ---
 title: Claude Code
 description: Install and use Sills in Claude Code.
-slug: /integrations/claude-code
+slug: /documentation/integrations/claude-code
 section: Guide
 order: 25
 ---

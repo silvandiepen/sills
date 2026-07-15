@@ -1,7 +1,7 @@
 ---
 title: Confidence
 description: How Sills separates strong evidence from inference and manual-review requirements.
-slug: /reports/confidence
+slug: /documentation/reports/confidence
 section: Reports
 order: 24
 ---

@@ -1,7 +1,7 @@
 ---
 title: Electron and web desktop apps
 description: Apply web runtime and repository audits to browser-based desktop shells.
-slug: /platforms/electron
+slug: /documentation/platforms/electron
 section: Platforms
 order: 32
 ---

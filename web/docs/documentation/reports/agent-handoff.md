@@ -1,7 +1,7 @@
 ---
 title: Agent handoff
 description: Use a Sills report as the source for a remediation workflow.
-slug: /reports/agent-handoff
+slug: /documentation/reports/agent-handoff
 section: Guide
 order: 23
 ---

@@ -1,7 +1,7 @@
 ---
 title: Evidence
 description: How Sills records screenshots, traces, logs, measurements, source locations, and observations.
-slug: /reports/evidence
+slug: /documentation/reports/evidence
 section: Guide
 order: 22
 ---

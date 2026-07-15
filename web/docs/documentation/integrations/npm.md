@@ -1,7 +1,7 @@
 ---
 title: npm packages
 description: Install and publish the Sills packages.
-slug: /integrations/npm
+slug: /documentation/integrations/npm
 section: Guide
 order: 27
 ---

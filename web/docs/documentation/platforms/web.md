@@ -1,7 +1,7 @@
 ---
 title: Web
 description: Audit websites and web applications across source and runtime.
-slug: /platforms/web
+slug: /documentation/platforms/web
 section: Platforms
 order: 30
 ---

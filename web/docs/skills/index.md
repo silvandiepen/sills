@@ -4,7 +4,7 @@ description: Choose the full audit or a specialist Sills skill.
 slug: /skills
 section: Skills
 order: 1
-archive: sections
+archive: articles
 archiveTitle: Available skills
 ---
 
