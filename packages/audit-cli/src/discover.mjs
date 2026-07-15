@@ -1,5 +1,6 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join, relative, resolve } from 'node:path';
+import { runBuiltInPlatformAdapters } from './platform-adapters.mjs';
 
 const IGNORE = new Set(['node_modules', '.git', 'dist', 'build', '.next', '.nuxt', 'coverage', 'audit', '.turbo']);
 const DOC_NAMES = new Set(['README.md', 'AGENTS.md', 'CLAUDE.md', 'CONTRIBUTING.md', 'ARCHITECTURE.md', 'SECURITY.md']);
@@ -63,6 +64,7 @@ export async function discoverProject(path, options = {}) {
     workspaces: [],
     platforms: [],
     ecosystems: [],
+    platformFacts: [],
     warnings: [],
   };
 
@@ -91,5 +93,10 @@ export async function discoverProject(path, options = {}) {
   for (const key of ['frameworks', 'packageManagers', 'platforms', 'ecosystems', 'configFiles', 'documentation', 'iosProjects', 'androidProjects']) {
     result[key] = [...new Set(result[key])].sort();
   }
+
+  const adapterResult = await runBuiltInPlatformAdapters(result);
+  result.platformFacts = adapterResult.facts;
+  result.warnings.push(...adapterResult.warnings);
+
   return result;
 }
