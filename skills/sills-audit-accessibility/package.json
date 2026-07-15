@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-accessibility",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Accessibility and inclusive-design audit for complete products.",
   "license": "MIT",
   "type": "module",

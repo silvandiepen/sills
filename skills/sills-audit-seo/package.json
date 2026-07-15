@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-seo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Crawlability, indexability, metadata, structured data, content, and discoverability audit",
   "license": "MIT",
   "type": "module",

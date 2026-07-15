@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-architecture",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Repository and application architecture audit.",
   "license": "MIT",
   "type": "module",

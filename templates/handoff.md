@@ -16,3 +16,7 @@ Read `report.json` as the source of truth and `report.md` for context.
 ## Audit limitations
 
 {{limitations}}
+
+## Task execution
+
+Use the Tasks section and report.json as the implementation queue. Resolve tasks in priority order, inspect every linked finding, preserve original evidence, meet acceptance criteria, run verification, and update task and finding status without deleting the original audit record.

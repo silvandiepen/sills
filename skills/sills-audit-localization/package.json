@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-localization",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Internationalization, translation, locale, RTL, formatting, and content-fit audit",
   "license": "MIT",
   "type": "module",

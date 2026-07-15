@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-api-design",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Contract, consistency, lifecycle, error, security, and developer-experience audit",
   "license": "MIT",
   "type": "module",

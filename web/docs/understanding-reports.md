@@ -27,3 +27,7 @@ Sills records concrete patterns worth preserving. Positive findings use the same
 ## Limitations
 
 An inaccessible route, unavailable simulator, failed tool, missing role, or declined dependency is reported as a limitation, never converted into a passing result.
+
+## Status conclusions and tasks
+
+Every report now starts with a universal health level, a domain-specific conclusion label, status dimensions, and a prioritised Tasks section. Read the [status conclusions and tasks guide](/documentation/reports/status-and-tasks) for the complete contract.

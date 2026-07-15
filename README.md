@@ -89,3 +89,7 @@ The repository provides fourteen specialist audit skills, the umbrella orchestra
 ## License
 
 MIT
+
+## Consistent reports
+
+Every audit uses the same report order, starts with a professional status conclusion, includes audit-specific dimension statuses, and produces a traceable Tasks section. Runtime-capable audits ask for live, staging, preview, or local URLs when none are supplied or documented.

@@ -101,3 +101,19 @@ Read only the references relevant to the repository and scope:
 - `references/methodology.md`
 - `references/evidence-and-reporting.md`
 - `references/platforms-and-tools.md`
+
+<!-- sills:shared-report-contract:start -->
+## Shared report and runtime-intake contract
+
+Before writing any Agent readiness audit output, read `references/report-contract.md` and use the bundled report template.
+
+- Begin with a professional status conclusion using the universal Sills health level and an audit-specific label.
+- Report the relevant status dimensions rather than hiding materially different strengths and weaknesses behind one label.
+- Include a ship decision only when this specialist has enough evidence to justify one.
+- Include a prioritised Tasks section with traceable actions, acceptance criteria, and verification.
+- Keep the standard section order so every Sills report is immediately comparable.
+- When runtime web coverage is relevant and no usable URL is supplied or documented, ask once for live, staging, preview, or local URLs and their environment and role. Continue source analysis if none are provided.
+- In CI mode, never prompt; record absent runtime targets as a limitation.
+
+Recommended status dimensions: Instructions; Project knowledge; Decisions; Workflows; Safety and continuity.
+<!-- sills:shared-report-contract:end -->

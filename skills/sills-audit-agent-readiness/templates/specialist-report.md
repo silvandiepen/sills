@@ -1,29 +1,57 @@
-# Agent readiness audit
+# Agent readiness audit report
 
-## Assessment
+## Status conclusion
 
-- Readiness level:
-- Confidence:
-- Supported agents reviewed:
-- Mode and depth:
-- Release blockers:
+- **Status:** {{conclusion_label}}
+- **Level:** `{{conclusion_level}}`
+- **Ship decision:** {{ship_decision_or_not_applicable}}
 
-## Scope and limitations
+{{conclusion_summary}}
 
-## Instruction hierarchy
+**Rationale**
 
-## Authority and repository knowledge map
+{{conclusion_rationale}}
 
-## Verified workflow matrix
+## Executive summary
 
-## Safety boundaries
+{{executive_summary}}
 
-## Decisions and continuity
+## Status by dimension
 
-## Context efficiency and drift
+{{dimension_status_table}}
+
+## Scope and coverage
+
+{{scope_and_coverage}}
+
+## Tasks
+
+{{tasks}}
+
+## Release blockers
+
+{{release_blockers_or_none}}
+
+## Findings
+
+{{findings}}
 
 ## Positive findings
 
-## Prioritised findings
+{{positive_findings}}
 
-## Recommended documentation plan
+## Cross-cutting patterns
+
+{{cross_cutting_patterns}}
+
+## Manual-review queue
+
+{{manual_review_queue}}
+
+## Limitations and untested areas
+
+{{limitations}}
+
+## Evidence index
+
+{{evidence_index}}
