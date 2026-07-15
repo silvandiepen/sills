@@ -6,6 +6,7 @@ on:
       - 'web/docs/**'
       - 'web/girk.config.json'
       - 'package.json'
+      - 'wrangler.toml'
       - 'tooling/validate.mjs'
       - 'tooling/build-website.mjs'
       - '.github/workflows/docs.yml'
@@ -15,6 +16,7 @@ on:
       - 'web/docs/**'
       - 'web/girk.config.json'
       - 'package.json'
+      - 'wrangler.toml'
       - 'tooling/build-website.mjs'
       - '.github/workflows/docs.yml'
 
