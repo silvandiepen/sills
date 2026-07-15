@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/finding-confidence.schema.json",
+  "title": "Sills finding confidence",
+  "type": "object",
+  "required": ["level", "basis"],
+  "properties": {
+    "level": { "enum": ["certain", "likely", "possible", "insufficient-evidence"] },
+    "basis": { "type": "string", "minLength": 1 },
+    "evidenceIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
