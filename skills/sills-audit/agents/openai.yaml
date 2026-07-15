@@ -1,6 +1,6 @@
 interface:
   display_name: "Sills Full Audit"
-  short_description: "Run a complete project audit across accessibility, experience, content, architecture, and security."
+  short_description: "Run a complete evidence-based audit across all Sills specialist disciplines."
   default_prompt: "Use $sills-audit to perform a full report-only audit of this project and write the dated results to the audit directory."
 policy:
   allow_implicit_invocation: true

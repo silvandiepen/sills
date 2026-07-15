@@ -32,4 +32,5 @@ test('umbrella CLI can run directly from a source checkout', () => {
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /Would install sills-audit for custom:/);
   assert.match(result.stdout, /Would install sills-audit-api-design for custom:/);
+  assert.match(result.stdout, /Would install sills-audit-agent-readiness for custom:/);
 });

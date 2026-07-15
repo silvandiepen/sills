@@ -1,0 +1,6 @@
+interface:
+  display_name: "Agent Readiness Audit"
+  short_description: "Audit whether a repository is clear and safe for AI coding agents."
+  default_prompt: "Use $sills-audit-agent-readiness to audit this repository for AI-agent readiness and write a complete dated report without modifying the project."
+policy:
+  allow_implicit_invocation: true
