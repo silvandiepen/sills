@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/risk-profile.schema.json",
+  "title": "Sills risk profile",
+  "type": "object",
+  "required": ["dimensions"],
+  "properties": {
+    "dimensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "level", "findingIds"],
+        "properties": {
+          "name": { "type": "string" },
+          "level": { "type": "integer", "minimum": 0, "maximum": 5 },
+          "findingIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "explanation": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
