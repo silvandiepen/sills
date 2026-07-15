@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/audit-trend.schema.json",
+  "title": "Sills audit trend",
+  "type": "object",
+  "required": ["baselineRun", "currentRun", "counts"],
+  "properties": {
+    "baselineRun": { "type": "string" },
+    "currentRun": { "type": "string" },
+    "counts": {
+      "type": "object",
+      "required": ["previous", "current", "resolved", "new", "unchanged"],
+      "properties": {
+        "previous": { "type": "integer", "minimum": 0 },
+        "current": { "type": "integer", "minimum": 0 },
+        "resolved": { "type": "integer", "minimum": 0 },
+        "new": { "type": "integer", "minimum": 0 },
+        "unchanged": { "type": "integer", "minimum": 0 },
+        "regressed": { "type": "integer", "minimum": 0, "default": 0 }
+      },
+      "additionalProperties": false
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["findingId", "change"],
+        "properties": {
+          "findingId": { "type": "string" },
+          "change": { "enum": ["new", "resolved", "unchanged", "regressed", "improved", "reclassified"] },
+          "previousSeverity": { "type": "string" },
+          "currentSeverity": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
