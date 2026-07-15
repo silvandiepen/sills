@@ -5,6 +5,7 @@ on:
     paths:
       - 'web/docs/**'
       - 'web/girk.config.json'
+      - 'sills.svg'
       - 'package.json'
       - 'wrangler.toml'
       - 'tooling/validate.mjs'
@@ -15,8 +16,10 @@ on:
     paths:
       - 'web/docs/**'
       - 'web/girk.config.json'
+      - 'sills.svg'
       - 'package.json'
       - 'wrangler.toml'
+      - 'tooling/validate.mjs'
       - 'tooling/build-website.mjs'
       - '.github/workflows/docs.yml'
 
