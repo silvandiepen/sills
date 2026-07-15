@@ -1,45 +1,121 @@
-# Platform support roadmap
+# Platform and knowledge support roadmap
 
 ## Goal
 
-Add platform-aware audit adapters without turning the specialist suite into duplicated framework-specific methodology.
+Expand platform-aware auditing without duplicating specialist methodology. Built-in adapters recognize technologies and normalize evidence. Shared knowledge collectors convert those facts into reusable project knowledge for every selected specialist.
 
-## Phase 1: capability and discovery adapters
+## Architecture
 
-Create adapters that enrich shared discovery and capability resolution for:
+```text
+repository and runtime evidence
+            ↓
+        discovery
+            ↓
+ built-in platform adapters
+            ↓
+ shared knowledge collectors
+            ↓
+ routes, components, APIs, roles, data, deployments, CI, tests
+            ↓
+ selected audit specialists
+```
 
-- Vue, Nuxt, React, Next.js, Angular, and SvelteKit;
-- Capacitor, Electron, Swift/iOS, Android, React Native, Expo, and Flutter;
-- Cloudflare, Supabase, Firebase, Docker, Kubernetes, and Terraform;
-- Laravel, Rails, ASP.NET, Go, Rust, and Python services.
+Adapters and collectors remain built into the Sills monorepo. An external plugin system is not planned until third parties need independent extensions and the contracts have remained stable across several releases.
 
-Adapters produce normalized project facts, commands, runtime targets, and evidence hints. They do not produce final findings by themselves.
+## Implemented foundation
 
-## Phase 2: framework evidence collectors
+- JavaScript packages, scripts, source roots, and workspaces;
+- Vue and Nuxt;
+- React and Next.js;
+- Angular and SvelteKit;
+- Capacitor, iOS, Android, Electron, React Native, and Expo;
+- Cloudflare Workers, Supabase, and Firebase;
+- Docker, Terraform, and GitHub Actions;
+- normalized platform facts;
+- stable shared-knowledge nodes and typed relationships;
+- explicit evidence and confidence;
+- fixture-based adapter coverage.
 
-Add optional collectors for route maps, component trees, build output, configuration, deployment manifests, native entitlements, permissions, dependency boundaries, and test topology.
+## Knowledge collectors
 
-Collectors write to the shared evidence store so accessibility, performance, architecture, security, and other specialists can reuse the same facts.
+### Route and endpoint collector
 
-## Phase 3: specialist rules
+Normalize routes, pages, navigation entry points, server handlers, API endpoints, middleware, and route-level authorization across Vue Router, Nuxt, React Router, Next.js, Angular, SvelteKit, backend frameworks, and API specifications.
 
-Only add platform-specific rules where the platform creates genuinely different risks. Keep universal methodology inside the existing specialist and store platform rules as small, versioned rule packs.
+### Component and design-system collector
 
-## Packaging
+Normalize components, shared UI packages, stories, tokens, themes, variants, component states, and adoption evidence.
 
-Use packages such as `@sills/adapter-vue` and `@sills/adapter-capacitor` only after the plugin contract is stable. Initially keep adapters inside the monorepo to avoid premature package fragmentation.
+### Authentication and authorization collector
 
-## Order
+Normalize identity providers, login methods, sessions, roles, permissions, guards, middleware, policies, and protected resources across Supabase, Firebase, Auth0, Clerk, Better Auth, custom identity systems, and native platforms.
 
-1. Vue/Nuxt, React/Next, Capacitor, Cloudflare, Supabase.
-2. Angular, SvelteKit, Electron, React Native/Expo, Firebase.
-3. Swift/iOS, Android, Flutter, Docker, Terraform.
-4. Kubernetes and backend ecosystem adapters.
+### Data and storage collector
+
+Normalize databases, schemas, migrations, row-level policies, storage buckets, caches, queues, object stores, generated types, backup hints, and data-flow evidence.
+
+### Deployment and environment collector
+
+Normalize applications, environments, deployment targets, domains, routes, bindings, environment overrides, runtime versions, regions, secrets references, and rollback signals.
+
+### CI and test collector
+
+Normalize workflows, jobs, commands, test types, coverage artefacts, build matrices, release gates, deployment jobs, required checks, and flaky-test evidence.
+
+### Native collector
+
+Normalize native targets, permissions, entitlements, privacy manifests, deep links, exported activities, background modes, signing configuration, and store metadata.
+
+### Localization collector
+
+Normalize locale files, supported locales, fallback chains, RTL support, message extraction, formatting libraries, and translation-generation workflows.
+
+## Remaining platform waves
+
+### Wave 2: native depth
+
+- Swift Package Manager and Xcode build settings;
+- Android Gradle projects and manifests;
+- Flutter and Dart;
+- Kotlin Multiplatform;
+- deeper Capacitor and React Native configuration.
+
+### Wave 3: infrastructure and delivery
+
+- Kubernetes;
+- Helm;
+- Pulumi;
+- AWS CDK and CloudFormation;
+- Vercel, Netlify, Fly.io, Railway, Render, and container registries;
+- GitLab CI, CircleCI, Buildkite, and Azure Pipelines.
+
+### Wave 4: backend frameworks
+
+- Node.js, Express, Fastify, Hono and NestJS;
+- Laravel and Symfony;
+- Rails;
+- ASP.NET;
+- Django, Flask and FastAPI;
+- Go HTTP frameworks;
+- Rust Axum, Actix and Rocket;
+- Java Spring and Kotlin Ktor.
+
+### Wave 5: data and messaging
+
+- PostgreSQL, MySQL, SQLite and SQL migrations;
+- MongoDB and document stores;
+- Redis and caches;
+- Kafka, RabbitMQ, SQS and queue systems;
+- Prisma, Drizzle, TypeORM, Sequelize and SQLAlchemy;
+- search services and vector databases.
 
 ## Acceptance criteria
 
-- adapters do not duplicate specialist reports;
-- all discovered facts use a shared schema;
-- unsupported platforms degrade explicitly;
-- adapters can be tested with fixtures;
-- adding a platform does not require editing every specialist.
+- adapters never produce final audit findings;
+- all facts and knowledge nodes retain evidence and confidence;
+- specialists reuse shared knowledge instead of rebuilding inventories;
+- unsupported technologies degrade explicitly;
+- every adapter and collector has representative fixtures;
+- adding a platform does not require editing every specialist;
+- the support matrix distinguishes full normalization from basic identification;
+- documentation changes are required in the same pull request as support changes.

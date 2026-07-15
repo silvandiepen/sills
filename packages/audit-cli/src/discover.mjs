@@ -1,5 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join, relative, resolve } from 'node:path';
+import { runBuiltInPlatformAdapters } from './platform-adapters.mjs';
+import { buildProjectKnowledge } from './project-knowledge.mjs';
 
 const IGNORE = new Set(['node_modules', '.git', 'dist', 'build', '.next', '.nuxt', 'coverage', 'audit', '.turbo']);
 const DOC_NAMES = new Set(['README.md', 'AGENTS.md', 'CLAUDE.md', 'CONTRIBUTING.md', 'ARCHITECTURE.md', 'SECURITY.md']);
@@ -8,6 +10,8 @@ const CONFIG_PATTERNS = [
   /^(docker-compose|compose)\.(yml|yaml)$/,
   /^wrangler\.(toml|jsonc?)$/,
   /^supabase\/config\.toml$/,
+  /^firebase\.json$/,
+  /^app\.(json|config\.[cm]?[jt]s)$/,
 ];
 
 async function walk(root, current, result, depth = 0, maxDepth = 12) {
@@ -38,6 +42,7 @@ async function walk(root, current, result, depth = 0, maxDepth = 12) {
     if (entry.name === 'package.json') result.packageFiles.push(rel);
     if (DOC_NAMES.has(entry.name) || (entry.name.endsWith('.md') && depth <= 3)) result.documentation.push(rel);
     if (CONFIG_PATTERNS.some((pattern) => pattern.test(entry.name) || pattern.test(rel))) result.configFiles.push(rel);
+    if (/^\.github\/workflows\/.+\.ya?ml$/.test(rel)) result.workflowFiles.push(rel);
     if (entry.name === 'Cargo.toml') result.ecosystems.push('rust');
     if (entry.name === 'go.mod') result.ecosystems.push('go');
     if (entry.name === 'pyproject.toml' || entry.name === 'requirements.txt') result.ecosystems.push('python');
@@ -45,7 +50,10 @@ async function walk(root, current, result, depth = 0, maxDepth = 12) {
     if (entry.name === 'Gemfile') result.ecosystems.push('ruby');
     if (entry.name.endsWith('.csproj')) result.ecosystems.push('dotnet');
     if (entry.name === 'Dockerfile' || entry.name.startsWith('Dockerfile.')) result.platforms.push('docker');
-    if (entry.name.endsWith('.tf')) result.platforms.push('terraform');
+    if (entry.name.endsWith('.tf')) {
+      result.platforms.push('terraform');
+      result.terraformFiles.push(rel);
+    }
   }
 }
 
@@ -56,6 +64,8 @@ export async function discoverProject(path, options = {}) {
     packageFiles: [],
     documentation: [],
     configFiles: [],
+    workflowFiles: [],
+    terraformFiles: [],
     iosProjects: [],
     androidProjects: [],
     frameworks: [],
@@ -63,6 +73,8 @@ export async function discoverProject(path, options = {}) {
     workspaces: [],
     platforms: [],
     ecosystems: [],
+    platformFacts: [],
+    projectKnowledge: null,
     warnings: [],
   };
 
@@ -71,13 +83,14 @@ export async function discoverProject(path, options = {}) {
   for (const file of result.packageFiles) {
     try {
       const pkg = JSON.parse(await readFile(join(root, file), 'utf8'));
-      const dependencies = { ...pkg.dependencies, ...pkg.devDependencies };
+      const allDependencies = { ...pkg.dependencies, ...pkg.devDependencies, ...pkg.peerDependencies };
       for (const [name, framework] of [
         ['vue', 'vue'], ['nuxt', 'nuxt'], ['react', 'react'], ['next', 'next'], ['svelte', 'svelte'],
         ['@sveltejs/kit', 'sveltekit'], ['@angular/core', 'angular'], ['electron', 'electron'],
         ['@capacitor/core', 'capacitor'], ['react-native', 'react-native'], ['expo', 'expo'],
         ['@cloudflare/workers-types', 'cloudflare-workers'], ['@supabase/supabase-js', 'supabase'],
-      ]) if (dependencies[name]) result.frameworks.push(framework);
+        ['firebase', 'firebase'], ['firebase-admin', 'firebase-admin'],
+      ]) if (allDependencies[name]) result.frameworks.push(framework);
       if (pkg.workspaces) result.workspaces.push({ file, workspaces: pkg.workspaces });
     } catch (error) {
       result.warnings.push({ type: 'invalid-package-json', path: file, message: error.message });
@@ -88,8 +101,14 @@ export async function discoverProject(path, options = {}) {
     try { await readFile(join(root, file)); result.packageManagers.push(manager); } catch {}
   }
 
-  for (const key of ['frameworks', 'packageManagers', 'platforms', 'ecosystems', 'configFiles', 'documentation', 'iosProjects', 'androidProjects']) {
+  for (const key of ['frameworks', 'packageManagers', 'platforms', 'ecosystems', 'configFiles', 'documentation', 'workflowFiles', 'terraformFiles', 'iosProjects', 'androidProjects']) {
     result[key] = [...new Set(result[key])].sort();
   }
+
+  const adapterResult = await runBuiltInPlatformAdapters(result);
+  result.platformFacts = adapterResult.facts;
+  result.warnings.push(...adapterResult.warnings);
+  result.projectKnowledge = buildProjectKnowledge(result.platformFacts, result.warnings);
+
   return result;
 }

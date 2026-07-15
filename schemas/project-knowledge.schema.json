@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/project-knowledge.schema.json",
+  "title": "Sills shared project knowledge",
+  "type": "object",
+  "required": ["version", "nodes", "relationships", "warnings"],
+  "properties": {
+    "version": { "const": "1.0.0" },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "name", "technology", "attributes", "evidence", "confidence"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^KN-[A-Z0-9-]+$" },
+          "type": { "type": "string" },
+          "name": { "type": "string" },
+          "technology": { "type": "string" },
+          "attributes": { "type": "object" },
+          "evidence": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "confidence": { "enum": ["certain", "likely", "possible", "insufficient-evidence"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "type", "to", "evidence"],
+        "properties": {
+          "from": { "type": "string" },
+          "type": { "type": "string" },
+          "to": { "type": "string" },
+          "evidence": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+        },
+        "additionalProperties": false
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "object" } }
+  },
+  "additionalProperties": false
+}

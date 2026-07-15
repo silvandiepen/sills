@@ -8,11 +8,21 @@ Sills is an open-source suite of report-only Agent Skills for auditing websites,
 
 The suite is built for Claude Code and OpenAI Codex using the shared Agent Skills format. It discovers the product before judging it, gathers source and runtime evidence, records what was and was not tested, and writes dated reports that another agent can use for remediation.
 
+## How it works
+
+Sills uses a selective umbrella orchestrator rather than running every audit by default. It discovers the project once, asks which relevant audits to run when the request is generic, gathers common evidence once, builds shared project knowledge, and coordinates only the selected specialists.
+
+- [Support matrix](docs/support-matrix.md)
+- [Discovery and built-in platform support](docs/architecture/discovery-and-platform-support.md)
+- [Shared project knowledge model](docs/architecture/knowledge-model.md)
+- [Platform and knowledge support roadmap](docs/roadmap/platform-support.md)
+- [Remediation engine plan](docs/roadmap/remediation-engine.md)
+
 ## Skills
 
 | Skill | npm package | Purpose |
 |---|---|---|
-| `sills-audit` | `sills-audit` | Full-project audit and orchestration |
+| `sills-audit` | `sills-audit` | Selective audit planning and orchestration |
 | `sills-audit-accessibility` | `sills-audit-accessibility` | Accessibility and inclusive-design audit |
 | `sills-audit-experience` | `sills-audit-experience` | Visual, usability, interaction, responsiveness, and perceived-performance audit |
 | `sills-audit-content` | `sills-audit-content` | Product clarity, information architecture, UX writing, and content-coherence audit |
@@ -45,6 +55,12 @@ npx sills-audit-agent-readiness install
 ## Run
 
 In Codex:
+
+```text
+$sills-audit Audit this project.
+```
+
+For a generic request, the umbrella discovers the project and asks which relevant specialists to run. To request every applicable specialist explicitly:
 
 ```text
 $sills-audit Do a full audit of this project.
@@ -80,7 +96,7 @@ npm run validate
 npm run pack:check
 ```
 
-Public website content for Girky lives in [`web/docs`](web/docs).
+Public website content lives in [`web/docs`](web/docs).
 
 ## Status
 
