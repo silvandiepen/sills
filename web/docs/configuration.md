@@ -4,6 +4,7 @@ description: Configure content, scope, output, and audit conventions.
 slug: /configuration
 section: Guide
 order: 6
+hide: true
 ---
 
 

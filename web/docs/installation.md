@@ -4,6 +4,7 @@ description: Install Sills for Codex, Claude Code, a project, or a user account.
 slug: /installation
 section: Guide
 order: 3
+hide: true
 ---
 
 

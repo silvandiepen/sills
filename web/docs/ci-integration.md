@@ -4,6 +4,7 @@ description: Run Sills validation and prepare audit workflows in continuous inte
 slug: /ci-integration
 section: Guide
 order: 7
+hide: true
 ---
 
 

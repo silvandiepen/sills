@@ -4,6 +4,7 @@ description: Read Sills summaries, findings, evidence, coverage, and handoff fil
 slug: /understanding-reports
 section: Guide
 order: 5
+hide: true
 ---
 
 

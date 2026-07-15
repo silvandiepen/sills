@@ -4,6 +4,7 @@ description: Choose audit mode, depth, scope, roles, and runtime behaviour.
 slug: /running-an-audit
 section: Guide
 order: 4
+hide: true
 ---
 
 

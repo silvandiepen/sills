@@ -4,6 +4,7 @@ description: Install Sills and run your first audit.
 slug: /getting-started
 section: Guide
 order: 2
+hide: true
 ---
 
 

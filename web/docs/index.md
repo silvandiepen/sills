@@ -13,17 +13,21 @@ Sills is a suite of report-only Agent Skills for Claude Code and Codex. It inves
 
 A Sills audit starts by discovering what the product is, who uses it, how it is structured, which workflows matter, and what documentation already says. It then gathers evidence, records coverage, separates facts from judgement, and produces dated reports another agent can use for remediation.
 
-## One command for the complete suite
+## Install
 
 ```bash
 npx sills-audit install
 ```
 
+This installs all skills into both `.agents/skills/` and `.claude/skills/` in the current project. Use `--codex`, `--claude`, `--global`, `--force`, `--dry-run`, or `--target PATH` when you need a narrower install.
+
+## Run
+
 ```text
 $sills-audit Do a full audit of this project.
 ```
 
-The umbrella skill coordinates five specialists and writes a combined report without changing the product.
+Sills defaults to source and runtime analysis when both are available, standard depth, and a dated `audit/` directory. You can run in `source`, `runtime`, `full`, `changed`, `ci`, or `verify` mode, with `quick`, `standard`, or `deep` depth.
 
 ## The specialist skills
 
@@ -35,7 +39,11 @@ The umbrella skill coordinates five specialists and writes a combined report wit
 
 ## What you receive
 
-Every audit writes human-readable Markdown, structured JSON, coverage data, evidence, raw tool results, positive findings, limitations, and a handoff file for a later remediation agent.
+Every audit writes human-readable Markdown, structured JSON, coverage data, evidence, raw tool results, positive findings, limitations, and a handoff file for a later remediation agent. Start with `summary.md`, use `report.md` for detail, and treat `report.json` as authoritative for automation.
+
+## CI and publishing
+
+CI validates skills, docs, tests, and package tarballs. The docs workflow builds the Girky site from `web/docs` and deploys it to Cloudflare Pages. The npm release workflow publishes only packages whose packed contents changed from `@latest`.
 
 ## Report-only by design
 
