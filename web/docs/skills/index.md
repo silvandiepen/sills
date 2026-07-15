@@ -6,6 +6,7 @@ section: Skills
 order: 1
 archive: articles
 archiveTitle: Available skills
+menuChildren: true
 ---
 
 # Skills
