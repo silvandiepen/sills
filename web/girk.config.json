@@ -1,5 +1,6 @@
 {
   "projectTitle": "Sills",
   "projectDescription": "Evidence-based audit skills for exceptional websites and apps.",
-  "projectRepository": "https://github.com/silvandiepen/sills"
+  "projectRepository": "https://github.com/silvandiepen/sills",
+  "copyright": "&copy; 2026 Sills &middot; <a href=\"/documentation/legal/privacy-policy/\">Privacy policy</a> &middot; <a href=\"/documentation/legal/terms-of-service/\">Terms of service</a> &middot; <a href=\"/documentation/legal/audit-disclaimer/\">Audit disclaimer</a>"
 }
