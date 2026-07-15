@@ -14,7 +14,8 @@ test('umbrella package depends on and installs every specialist skill', async ()
   const pkg = JSON.parse(await readFile(join(root, 'skills', 'sills-audit', 'package.json'), 'utf8'));
   const bin = await readFile(join(root, 'skills', 'sills-audit', 'bin', 'sills-audit.mjs'), 'utf8');
   for (const name of names) {
-    assert.equal(pkg.dependencies[name], '0.1.0', `${name} dependency missing`);
+    const specialist = JSON.parse(await readFile(join(root, 'skills', name, 'package.json'), 'utf8'));
+    assert.equal(pkg.dependencies[name], specialist.version, `${name} dependency version mismatch`);
     assert.match(bin, new RegExp(name), `${name} installer entry missing`);
   }
 });

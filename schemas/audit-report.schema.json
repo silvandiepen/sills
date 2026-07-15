@@ -1,19 +1,21 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://sills.dev/schemas/audit-report.schema.json",
+  "$id": "https://sills.hakobs.com/schemas/audit-report.schema.json",
   "title": "Sills audit report",
   "type": "object",
   "required": [
     "schemaVersion",
     "audit",
+    "conclusion",
     "scope",
     "coverage",
+    "tasks",
     "findings",
     "limitations"
   ],
   "properties": {
     "schemaVersion": {
-      "const": "1.0.0"
+      "const": "1.1.0"
     },
     "audit": {
       "type": "object",
@@ -65,11 +67,20 @@
       },
       "additionalProperties": true
     },
+    "conclusion": {
+      "$ref": "conclusion.schema.json"
+    },
     "scope": {
       "type": "object"
     },
     "coverage": {
       "type": "object"
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "$ref": "task.schema.json"
+      }
     },
     "findings": {
       "type": "array",

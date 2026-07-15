@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.hakobs.com/schemas/conclusion.schema.json",
+  "title": "Sills audit conclusion",
+  "type": "object",
+  "required": [
+    "level",
+    "label",
+    "summary",
+    "rationale",
+    "dimensions"
+  ],
+  "properties": {
+    "level": {
+      "enum": [
+        "strong",
+        "acceptable",
+        "needs-attention",
+        "high-risk",
+        "critical",
+        "insufficient-evidence"
+      ]
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rationale": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "shipDecision": {
+      "enum": [
+        "ready-to-ship",
+        "ready-with-conditions",
+        "not-ready",
+        "insufficient-evidence"
+      ]
+    },
+    "dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "level",
+          "summary"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "level": {
+            "enum": [
+              "strong",
+              "acceptable",
+              "needs-attention",
+              "high-risk",
+              "critical",
+              "insufficient-evidence"
+            ]
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "findingIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

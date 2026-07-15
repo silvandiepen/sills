@@ -4,7 +4,7 @@ description: Audit the full content experience of a product, including product c
 license: MIT
 metadata:
   author: Sil van Diepen
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Content Quality Audit
@@ -88,3 +88,19 @@ Do not produce a single artificial overall score. Prefer finding counts, release
 ## References
 
 Read only the reference files relevant to the current project and scope. Do not load all reference material automatically.
+
+<!-- sills:shared-report-contract:start -->
+## Shared report and runtime-intake contract
+
+Before writing any Content quality audit output, read `references/report-contract.md` and use the bundled report template.
+
+- Begin with a professional status conclusion using the universal Sills health level and an audit-specific label.
+- Report the relevant status dimensions rather than hiding materially different strengths and weaknesses behind one label.
+- Include a ship decision only when this specialist has enough evidence to justify one.
+- Include a prioritised Tasks section with traceable actions, acceptance criteria, and verification.
+- Keep the standard section order so every Sills report is immediately comparable.
+- When runtime web coverage is relevant and no usable URL is supplied or documented, ask once for live, staging, preview, or local URLs and their environment and role. Continue source analysis if none are provided.
+- In CI mode, never prompt; record absent runtime targets as a limitation.
+
+Recommended status dimensions: Product clarity; Information architecture; UX copy; Terminology and consistency; Content credibility.
+<!-- sills:shared-report-contract:end -->

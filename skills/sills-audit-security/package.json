@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-security",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Application, repository, dependency, CI/CD, and supply-chain security audit.",
   "license": "MIT",
   "type": "module",

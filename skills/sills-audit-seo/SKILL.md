@@ -4,7 +4,7 @@ description: Audit a public website or web application for technical SEO, crawla
 license: MIT
 metadata:
   author: Sil van Diepen
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # SEO Audit
@@ -83,3 +83,19 @@ Read only the references relevant to the discovered scope:
 - `references/checklist.md`
 - `references/evidence-and-reporting.md`
 - `references/platforms-and-tools.md`
+
+<!-- sills:shared-report-contract:start -->
+## Shared report and runtime-intake contract
+
+Before writing any SEO audit output, read `references/report-contract.md` and use the bundled report template.
+
+- Begin with a professional status conclusion using the universal Sills health level and an audit-specific label.
+- Report the relevant status dimensions rather than hiding materially different strengths and weaknesses behind one label.
+- Include a ship decision only when this specialist has enough evidence to justify one.
+- Include a prioritised Tasks section with traceable actions, acceptance criteria, and verification.
+- Keep the standard section order so every Sills report is immediately comparable.
+- When runtime web coverage is relevant and no usable URL is supplied or documented, ask once for live, staging, preview, or local URLs and their environment and role. Continue source analysis if none are provided.
+- In CI mode, never prompt; record absent runtime targets as a limitation.
+
+Recommended status dimensions: Crawlability; Indexability; Metadata and structured data; Content and internal linking; Performance and rendering.
+<!-- sills:shared-report-contract:end -->

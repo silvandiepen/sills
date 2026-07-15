@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-testing-strategy",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Risk coverage, test architecture, reliability, speed, and maintainability audit",
   "license": "MIT",
   "type": "module",

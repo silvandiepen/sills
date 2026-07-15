@@ -4,27 +4,59 @@
   "description": "Full-project audit orchestrator for accessibility, experience, content, architecture, security, performance, design systems, release readiness, localization, testing, privacy, SEO, APIs, and agent readiness.",
   "license": "MIT",
   "type": "module",
-  "engines": { "node": ">=20" },
-  "bin": { "sills-audit": "bin/sills-audit.mjs" },
-  "files": ["SKILL.md", "README.md", "bin", "references", "scripts", "templates", "agents", "LICENSE"],
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "sills-audit": "bin/sills-audit.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "bin",
+    "references",
+    "scripts",
+    "templates",
+    "agents",
+    "LICENSE"
+  ],
   "dependencies": {
     "sills-audit-installer": "0.1.0",
-    "sills-audit-accessibility": "0.1.0",
-    "sills-audit-experience": "0.1.0",
-    "sills-audit-content": "0.1.0",
-    "sills-audit-architecture": "0.1.0",
-    "sills-audit-security": "0.1.0",
-    "sills-audit-performance": "0.1.0",
-    "sills-audit-design-system": "0.1.0",
-    "sills-audit-release-readiness": "0.1.0",
-    "sills-audit-localization": "0.1.0",
-    "sills-audit-testing-strategy": "0.1.0",
-    "sills-audit-privacy-and-trust": "0.1.0",
-    "sills-audit-seo": "0.1.0",
-    "sills-audit-api-design": "0.1.0",
+    "sills-audit-accessibility": "0.2.0",
+    "sills-audit-experience": "0.2.0",
+    "sills-audit-content": "0.2.0",
+    "sills-audit-architecture": "0.2.0",
+    "sills-audit-security": "0.2.0",
+    "sills-audit-performance": "0.2.0",
+    "sills-audit-design-system": "0.2.0",
+    "sills-audit-release-readiness": "0.2.0",
+    "sills-audit-localization": "0.2.0",
+    "sills-audit-testing-strategy": "0.2.0",
+    "sills-audit-privacy-and-trust": "0.2.0",
+    "sills-audit-seo": "0.2.0",
+    "sills-audit-api-design": "0.2.0",
     "sills-audit-agent-readiness": "0.1.0"
   },
-  "keywords": ["agent-skills", "claude", "codex", "audit", "accessibility", "ux", "security", "architecture", "performance", "privacy", "seo", "api", "agent-readiness", "documentation"],
-  "repository": { "type": "git", "url": "git+https://github.com/silvandiepen/sills.git", "directory": "skills/sills-audit" },
+  "keywords": [
+    "agent-skills",
+    "claude",
+    "codex",
+    "audit",
+    "accessibility",
+    "ux",
+    "security",
+    "architecture",
+    "performance",
+    "privacy",
+    "seo",
+    "api",
+    "agent-readiness",
+    "documentation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/sills.git",
+    "directory": "skills/sills-audit"
+  },
   "homepage": "https://github.com/silvandiepen/sills/tree/main/skills/sills-audit"
 }

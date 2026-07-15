@@ -96,3 +96,19 @@ Depth: `quick`, `standard`, or `deep`.
 ## Safety
 
 Temporary records may be created only in authorised local, test, staging, or preview environments. Production defaults to observation. Security testing is passive. The suite never deploys, publishes, submits, approves, attacks, or modifies the product.
+
+<!-- sills:shared-report-contract:start -->
+## Shared report and runtime-intake contract
+
+Before writing any Full Sills audit output, read `references/report-contract.md` and use the bundled report template.
+
+- Begin with a professional status conclusion using the universal Sills health level and an audit-specific label.
+- Report the relevant status dimensions rather than hiding materially different strengths and weaknesses behind one label.
+- Include an explicit ship decision: `ready-to-ship`, `ready-with-conditions`, `not-ready`, or `insufficient-evidence`.
+- Include a prioritised Tasks section with traceable actions, acceptance criteria, and verification.
+- Keep the standard section order so every Sills report is immediately comparable.
+- When runtime web coverage is relevant and no usable URL is supplied or documented, ask once for live, staging, preview, or local URLs and their environment and role. Continue source analysis if none are provided.
+- In CI mode, never prompt; record absent runtime targets as a limitation.
+
+Recommended status dimensions: Accessibility; Product experience; Content quality; Codebase architecture; Security; Performance; Design system; Release readiness; Localization; Testing strategy; Privacy and trust; SEO; API design; Agent readiness.
+<!-- sills:shared-report-contract:end -->
