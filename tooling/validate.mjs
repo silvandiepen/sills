@@ -6,7 +6,7 @@ const mode = process.argv[2];
 const errors = [];
 
 async function dirs(path) {
-  return (await readdir(path, { withFileTypes: true })).filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+  return (await readdir(path, { withFileTypes: true })).filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
 }
 
 function frontmatter(text) {
@@ -57,9 +57,16 @@ async function validateDocs() {
 async function validatePackages() {
   const rootPkg = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
   if (!rootPkg.workspaces) errors.push('root package.json must define workspaces');
+  const names = (await dirs(join(root, 'skills'))).filter((name) => name !== 'sills-audit');
   const parent = JSON.parse(await readFile(join(root, 'skills', 'sills-audit', 'package.json'), 'utf8'));
-  for (const name of ['sills-audit-accessibility','sills-audit-experience','sills-audit-content','sills-audit-architecture','sills-audit-security']) {
+  const bin = await readFile(join(root, 'skills', 'sills-audit', 'bin', 'sills-audit.mjs'), 'utf8');
+  for (const name of names) {
     if (!parent.dependencies?.[name]) errors.push(`sills-audit must depend on ${name}`);
+    if (!bin.includes(`'${name}'`) && !bin.includes(`"${name}"`)) errors.push(`sills-audit installer must include ${name}`);
+  }
+  for (const dependency of Object.keys(parent.dependencies ?? {})) {
+    if (dependency === 'sills-audit-installer') continue;
+    if (!names.includes(dependency)) errors.push(`sills-audit dependency has no skill directory: ${dependency}`);
   }
 }
 

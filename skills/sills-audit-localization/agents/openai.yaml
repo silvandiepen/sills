@@ -1,0 +1,6 @@
+interface:
+  display_name: "Localization Audit"
+  short_description: "Internationalization, translation, locale, RTL, formatting, and content-fit audit."
+  default_prompt: "Use $sills-audit-localization to audit this project and write a complete dated report without modifying the product."
+policy:
+  allow_implicit_invocation: true

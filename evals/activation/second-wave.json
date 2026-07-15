@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": [
+    {"prompt":"Use $sills-audit-performance to audit this repository.","expectedSkill":"sills-audit-performance","shouldActivate":true},
+    {"prompt":"Review the project for performance risks and write a report only.","expectedSkill":"sills-audit-performance","shouldActivate":true},
+    {"prompt":"Fix every performance issue in the code.","expectedSkill":"sills-audit-performance","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
+    {"prompt":"Use $sills-audit-design-system to audit this repository.","expectedSkill":"sills-audit-design-system","shouldActivate":true},
+    {"prompt":"Review the project for design system risks and write a report only.","expectedSkill":"sills-audit-design-system","shouldActivate":true},
+    {"prompt":"Fix every design system issue in the code.","expectedSkill":"sills-audit-design-system","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
+    {"prompt":"Use $sills-audit-release-readiness to audit this repository.","expectedSkill":"sills-audit-release-readiness","shouldActivate":true},
+    {"prompt":"Review the project for release readiness risks and write a report only.","expectedSkill":"sills-audit-release-readiness","shouldActivate":true},
+    {"prompt":"Fix every release readiness issue in the code.","expectedSkill":"sills-audit-release-readiness","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
+    {"prompt":"Use $sills-audit-localization to audit this repository.","expectedSkill":"sills-audit-localization","shouldActivate":true},
+    {"prompt":"Review the project for localization risks and write a report only.","expectedSkill":"sills-audit-localization","shouldActivate":true},
+    {"prompt":"Fix every localization issue in the code.","expectedSkill":"sills-audit-localization","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
+    {"prompt":"Use $sills-audit-testing-strategy to audit this repository.","expectedSkill":"sills-audit-testing-strategy","shouldActivate":true},
+    {"prompt":"Review the project for testing strategy risks and write a report only.","expectedSkill":"sills-audit-testing-strategy","shouldActivate":true},
+    {"prompt":"Fix every testing strategy issue in the code.","expectedSkill":"sills-audit-testing-strategy","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
+    {"prompt":"Use $sills-audit-privacy-and-trust to audit this repository.","expectedSkill":"sills-audit-privacy-and-trust","shouldActivate":true},
+    {"prompt":"Review the project for privacy and trust risks and write a report only.","expectedSkill":"sills-audit-privacy-and-trust","shouldActivate":true},
+    {"prompt":"Fix every privacy and trust issue in the code.","expectedSkill":"sills-audit-privacy-and-trust","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
+    {"prompt":"Use $sills-audit-seo to audit this repository.","expectedSkill":"sills-audit-seo","shouldActivate":true},
+    {"prompt":"Review the project for seo risks and write a report only.","expectedSkill":"sills-audit-seo","shouldActivate":true},
+    {"prompt":"Fix every seo issue in the code.","expectedSkill":"sills-audit-seo","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
+    {"prompt":"Use $sills-audit-api-design to audit this repository.","expectedSkill":"sills-audit-api-design","shouldActivate":true},
+    {"prompt":"Review the project for api design risks and write a report only.","expectedSkill":"sills-audit-api-design","shouldActivate":true},
+    {"prompt":"Fix every api design issue in the code.","expectedSkill":"sills-audit-api-design","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."}
+  ]
+}

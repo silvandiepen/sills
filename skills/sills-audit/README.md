@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/silvandiepen/sills/main/sills.svg" alt="Sills" width="180">
 </p>
 
-Run one complete, evidence-based project audit across accessibility, product experience, content quality, codebase architecture, and security.
+Run one complete, evidence-based project audit across thirteen specialist disciplines.
 
 ## Install the complete suite
 
@@ -12,7 +12,7 @@ Run one complete, evidence-based project audit across accessibility, product exp
 npx sills-audit install
 ```
 
-This installs the umbrella skill and all five specialists for Codex and Claude Code. Use `--codex`, `--claude`, or `--global` to narrow installation.
+This installs the umbrella skill and all thirteen specialists for Codex and Claude Code. Use `--codex`, `--claude`, or `--global` to narrow installation.
 
 ## Use
 
@@ -20,15 +20,15 @@ This installs the umbrella skill and all five specialists for Codex and Claude C
 $sills-audit Do a full audit of this project.
 ```
 
-## What it does
+## Specialist coverage
 
-The umbrella skill reads project documentation, discovers applications, packages, routes, roles, workflows, states, services, integrations, trust boundaries, and available runtimes. It coordinates every applicable specialist, reuses evidence, deduplicates overlap, identifies cross-cutting root causes, and decides release blockers.
+Accessibility, product experience, content quality, codebase architecture, security, performance, design systems, release readiness, localization, testing strategy, privacy and trust, SEO, and API design.
 
 ## What it gives you
 
 - One executive summary and complete human-readable report.
 - A machine-readable `report.json`.
-- Separate accessibility, experience, content, architecture, and security reports.
+- Separate specialist reports and related findings.
 - Coverage inventory, evidence, raw tool results, positive findings, limitations, and release blockers.
 - `handoff.md` so another agent can fix every open finding in a controlled order.
 

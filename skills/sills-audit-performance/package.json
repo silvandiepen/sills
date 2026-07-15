@@ -1,0 +1,40 @@
+{
+  "name": "sills-audit-performance",
+  "version": "0.1.0",
+  "description": "Loading, runtime, responsiveness, stability, and resource-efficiency audit",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "sills-audit-performance": "bin/install.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "bin",
+    "references",
+    "scripts",
+    "templates",
+    "agents",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "sills-audit-installer": "0.1.0"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude",
+    "codex",
+    "audit",
+    "performance",
+    "quality"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/sills.git",
+    "directory": "skills/sills-audit-performance"
+  },
+  "homepage": "https://github.com/silvandiepen/sills/tree/main/skills/sills-audit-performance"
+}

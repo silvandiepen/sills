@@ -1,0 +1,6 @@
+interface:
+  display_name: "SEO Audit"
+  short_description: "Crawlability, indexability, metadata, structured data, content, and discoverability audit."
+  default_prompt: "Use $sills-audit-seo to audit this project and write a complete dated report without modifying the product."
+policy:
+  allow_implicit_invocation: true

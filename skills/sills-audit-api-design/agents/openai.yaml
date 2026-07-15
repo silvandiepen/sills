@@ -1,0 +1,6 @@
+interface:
+  display_name: "API Design Audit"
+  short_description: "Contract, consistency, lifecycle, error, security, and developer-experience audit."
+  default_prompt: "Use $sills-audit-api-design to audit this project and write a complete dated report without modifying the product."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,40 @@
+{
+  "name": "sills-audit-seo",
+  "version": "0.1.0",
+  "description": "Crawlability, indexability, metadata, structured data, content, and discoverability audit",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "sills-audit-seo": "bin/install.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "bin",
+    "references",
+    "scripts",
+    "templates",
+    "agents",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "sills-audit-installer": "0.1.0"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude",
+    "codex",
+    "audit",
+    "seo",
+    "quality"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/sills.git",
+    "directory": "skills/sills-audit-seo"
+  },
+  "homepage": "https://github.com/silvandiepen/sills/tree/main/skills/sills-audit-seo"
+}

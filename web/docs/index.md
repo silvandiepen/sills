@@ -6,12 +6,11 @@ section: Home
 order: 1
 ---
 
-
 # Audit the whole product, not just a checklist
 
-Sills is a suite of report-only Agent Skills for Claude Code and Codex. It investigates accessibility, product experience, content quality, codebase architecture, and security across source code and running products.
+Sills is a suite of report-only Agent Skills for Claude Code and Codex. It investigates thirteen specialist disciplines across source code and running products, then combines the evidence into reports another agent can use for remediation.
 
-A Sills audit starts by discovering what the product is, who uses it, how it is structured, which workflows matter, and what documentation already says. It then gathers evidence, records coverage, separates facts from judgement, and produces dated reports another agent can use for remediation.
+A Sills audit starts by discovering what the product is, who uses it, how it is structured, which workflows matter, and what documentation already says. It then gathers evidence, records coverage, separates facts from judgement, preserves positive patterns, and states what could not be tested.
 
 ## Install
 
@@ -36,6 +35,14 @@ Sills defaults to source and runtime analysis when both are available, standard 
 - [Content quality](/skills/content): clarity, information architecture, UX writing, terminology, onboarding, and AI-slop indicators.
 - [Codebase architecture](/skills/architecture): repository structure, boundaries, components, services, state, coupling, and maintainability.
 - [Security](/skills/security): authentication, authorization, data exposure, dependencies, CI/CD, supply chain, web controls, and iOS security.
+- [Performance](/skills/performance): loading, responsiveness, stability, rendering, assets, caching, and resource efficiency.
+- [Design system](/skills/design-system): tokens, components, states, accessibility contracts, adoption, and governance.
+- [Release readiness](/skills/release-readiness): launch evidence, migrations, operations, monitoring, rollback, and ownership.
+- [Localization](/skills/localization): translations, locale behaviour, formatting, RTL, text expansion, and fallback handling.
+- [Testing strategy](/skills/testing-strategy): risk coverage, test architecture, reliability, speed, fixtures, and CI confidence.
+- [Privacy and trust](/skills/privacy-and-trust): data practices, consent, transparency, deletion, tracking, and trustworthy controls.
+- [SEO](/skills/seo): crawlability, indexability, metadata, structured data, content, and discoverability.
+- [API design](/skills/api-design): contracts, consistency, errors, lifecycle, security, compatibility, and developer experience.
 
 ## What you receive
 
@@ -43,4 +50,4 @@ Every audit writes human-readable Markdown, structured JSON, coverage data, evid
 
 ## Report-only by design
 
-Audit skills do not fix code, edit content, install dependencies into the project, change configuration, or mutate product data. They may write only inside the selected dated audit directory.
+Audit skills do not fix code, edit content, install dependencies into the project, change configuration, deploy, publish, approve releases, or mutate product data. They may write only inside the selected dated audit directory.

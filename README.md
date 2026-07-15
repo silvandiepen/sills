@@ -18,6 +18,14 @@ The suite is built for Claude Code and OpenAI Codex using the shared Agent Skill
 | `sills-audit-content` | `sills-audit-content` | Product clarity, information architecture, UX writing, and content-coherence audit |
 | `sills-audit-architecture` | `sills-audit-architecture` | Repository and application architecture audit |
 | `sills-audit-security` | `sills-audit-security` | Application, repository, dependency, CI/CD, and supply-chain security audit |
+| `sills-audit-performance` | `sills-audit-performance` | Loading, runtime, responsiveness, stability, and resource-efficiency audit |
+| `sills-audit-design-system` | `sills-audit-design-system` | Tokens, components, states, adoption, governance, and visual-system audit |
+| `sills-audit-release-readiness` | `sills-audit-release-readiness` | Cross-functional launch risk, operations, rollback, and evidence audit |
+| `sills-audit-localization` | `sills-audit-localization` | Internationalization, translation, locale, RTL, formatting, and content-fit audit |
+| `sills-audit-testing-strategy` | `sills-audit-testing-strategy` | Risk coverage, test architecture, reliability, speed, and maintainability audit |
+| `sills-audit-privacy-and-trust` | `sills-audit-privacy-and-trust` | Data practice, consent, transparency, user control, and trustworthy-product audit |
+| `sills-audit-seo` | `sills-audit-seo` | Crawlability, indexability, metadata, structured data, content, and discoverability audit |
+| `sills-audit-api-design` | `sills-audit-api-design` | Contract, consistency, lifecycle, error, security, and developer-experience audit |
 
 ## Install
 
@@ -30,7 +38,7 @@ This installs the complete suite into both `.agents/skills/` and `.claude/skills
 ```bash
 npx sills-audit install --codex
 npx sills-audit install --claude --global
-npx sills-audit-accessibility install
+npx sills-audit-performance install
 ```
 
 ## Run
@@ -75,7 +83,7 @@ Public website content for Girky lives in [`web/docs`](web/docs).
 
 ## Status
 
-The repository currently provides the version-one skill suite, installer, report schemas, audit scaffolding, fixtures, evaluation manifests, website documentation, CI, and npm release automation. Audit quality still depends on the capabilities available to the invoking agent and environment; every report must state its coverage and limitations.
+The repository provides thirteen specialist audit skills, the umbrella orchestrator, installer, report schemas, audit scaffolding, fixtures, evaluation manifests, website documentation, CI, Cloudflare deployment, and npm release automation. Audit quality still depends on the capabilities available to the invoking agent and environment; every report must state its coverage and limitations.
 
 ## License
 
