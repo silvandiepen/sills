@@ -1,6 +1,6 @@
 {
   "name": "sills-monorepo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Cross-agent audit skills for exceptional websites and apps.",
   "license": "MIT",
