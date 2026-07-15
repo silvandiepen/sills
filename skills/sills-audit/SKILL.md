@@ -1,29 +1,66 @@
 ---
 name: sills-audit
-description: Run a complete, evidence-based, report-only audit of a project by coordinating the full Sills specialist suite across accessibility, product experience, content, architecture, security, performance, design systems, release readiness, localization, testing strategy, privacy and trust, SEO, API design, and agent readiness. Use for full audits, release decisions, changed-code reviews, CI, verification, web-first runtime analysis, supported iOS projects, and repository readiness for Claude Code and Codex.
+description: Plan and coordinate evidence-based, report-only audits across the Sills specialist suite. Use when the user wants help choosing audits, coordinating multiple specialists, running changed-code or CI audits, verifying earlier findings, or producing one coherent cross-functional report.
 license: MIT
 metadata:
   author: Sil van Diepen
-  version: "0.3.0"
+  version: "0.4.0"
 ---
 
-# Sills Full Audit
+# Sills Audit Orchestrator
 
-Coordinate all applicable Sills specialist audits and produce one coherent product report.
+Plan first, then coordinate only the audits the user selects or that are explicitly implied by the request.
 
 ## Non-negotiable contract
 
 - This is report-only. Never modify the audited project outside the selected audit directory.
 - Do not install dependencies into the project, change lockfiles, run migrations, invent environment variables, seed production data, deploy, publish, or approve releases.
-- Use isolated tools, temporary caches, existing project tools, or reduced coverage.
-- Reuse evidence and sessions across specialists.
+- Reuse shared discovery, source inventory, runtime sessions, screenshots, traces, network records, logs, accessibility snapshots, and measurements across specialists.
 - Never equate automated passes with compliance, security, readiness, rankings, performance, agent readiness, or defect-free status.
 - Read project documentation before applying general guidance.
 - Include evidence-backed positive findings.
 
-## Specialists
+## Audit selection
 
-Locate the sibling installed skills and apply all that are relevant:
+Do not run every specialist by default.
+
+1. Discover the project and the user's stated goal.
+2. Present the relevant specialist audits with a one-line explanation of each.
+3. Ask which audits the user wants to run, unless the request already names or clearly implies them.
+4. Recommend a focused set when useful, but keep the final selection explicit.
+5. In CI mode, use the configured selection and never prompt.
+
+A request for a "full audit" means all applicable specialists. A generic request such as "audit this project" requires selection before specialist execution.
+
+## Shared evidence phase
+
+Before specialists begin, create one shared evidence plan and one run-level evidence index.
+
+Collect shared inputs once:
+
+- repository and workspace discovery;
+- documentation and instruction inventory;
+- application, route, package, platform, service, API, and data-flow inventory;
+- runtime targets and environments;
+- authenticated sessions and available roles;
+- screenshots, traces, console output, network records, accessibility trees, and performance measurements;
+- tool versions, command results, timestamps, and known limitations.
+
+Specialists consume evidence by stable evidence ID. They add specialist-only evidence to the same index rather than creating disconnected copies. When evidence already exists, reuse it unless freshness or scope requires recollection.
+
+## Capability and execution plan
+
+Resolve each selected specialist's required and optional capabilities before execution. Record one of:
+
+- `run`;
+- `run-reduced-coverage`;
+- `manual-review`;
+- `skip-not-applicable`;
+- `skip-missing-capability`.
+
+Write the resolved selection, capabilities, shared evidence plan, and limitations to `manifest.json` before specialist reports are produced.
+
+## Specialists
 
 - `$sills-audit-accessibility`
 - `$sills-audit-experience`
@@ -40,47 +77,22 @@ Locate the sibling installed skills and apply all that are relevant:
 - `$sills-audit-api-design`
 - `$sills-audit-agent-readiness`
 
-Do not duplicate complete specialist methodologies inside this skill. Read each applicable `SKILL.md` and only the references relevant to the discovered scope.
-
-## Default request
-
-```text
-$sills-audit Do a full audit of this project.
-```
-
-Default to `full` mode and `standard` depth when source and runtime are available. Use `audit/YYYY-MM-DD/`, web-first runtime coverage, supported iOS analysis when present, Chromium plus relevant WebKit checks, and existing sessions or supplied test credentials only.
+Read only the selected specialist methodologies and references relevant to the discovered scope.
 
 ## Workflow
 
-1. **Read intent and constraints.** Read repository instructions, agent guidance, requirements, decisions, product, design, content, architecture, security, privacy, operations, release, localization, testing, API, SEO, and prior-audit documentation.
-2. **Discover the project.** Inventory applications, packages, platforms, routes, roles, workflows, states, components, services, integrations, APIs, data flows, trust boundaries, CI/CD, deployments, public surfaces, and agent instruction scopes.
-3. **Establish scope and coverage.** Prioritise primary journeys, shared foundations, high-risk operations, release-critical surfaces, agent-critical workflows, and affected dependants in changed mode.
-4. **Prepare the audit directory.** Use the bundled script or equivalent structure. Append `-02`, `-03`, and so on for repeated dates.
-5. **Start runtime safely.** Use documented commands and existing dependencies without changing the project.
-6. **Gather shared evidence.** Reuse screenshots, traces, logs, requests, accessibility snapshots, measurements, source mappings, documentation inventories, command results, tool versions, and timestamps across specialists.
-7. **Run applicable specialists.** Skip only genuinely irrelevant audits and explain why.
-8. **Deduplicate and correlate.** Preserve specialist IDs and connect shared roots across product, implementation, delivery, operations, documentation, and agent context.
-9. **Decide blockers and priority.** Consider task blockage, user impact, affected roles, frequency, recoverability, security, privacy, data, financial, operational, release, documentation, and systemic risk.
-10. **Write coherent reports.** Human and machine-readable outputs must agree.
-11. **Prepare remediation handoff.** Treat `report.json` as authoritative, preserve evidence and positive patterns, and verify each resolved finding.
-12. **Validate integrity.** Confirm no changes outside the audit directory, complete coverage labels, valid IDs, redaction, and explicit limitations.
-
-## Required specialist reports
-
-- `reports/accessibility.md`
-- `reports/experience.md`
-- `reports/content.md`
-- `reports/architecture.md`
-- `reports/security.md`
-- `reports/performance.md`
-- `reports/design-system.md`
-- `reports/release-readiness.md`
-- `reports/localization.md`
-- `reports/testing-strategy.md`
-- `reports/privacy-and-trust.md`
-- `reports/seo.md`
-- `reports/api-design.md`
-- `reports/agent-readiness.md`
+1. Read intent, constraints, and repository guidance.
+2. Discover the project once.
+3. Resolve audit selection.
+4. Resolve capabilities and coverage expectations.
+5. Prepare the audit directory and shared evidence index.
+6. Gather reusable evidence once.
+7. Run selected specialists, in parallel where their evidence dependencies permit.
+8. Deduplicate and correlate findings while preserving specialist IDs.
+9. Decide blockers and priority.
+10. Write coherent human and machine-readable reports.
+11. Prepare remediation handoff.
+12. Validate integrity, redaction, coverage, and limitations.
 
 ## Modes
 
@@ -88,7 +100,7 @@ Default to `full` mode and `standard` depth when source and runtime are availabl
 - `runtime`: running product only.
 - `full`: source plus runtime.
 - `changed`: changed files and affected runtime areas.
-- `ci`: non-interactive machine-readable execution.
+- `ci`: non-interactive machine-readable execution using configured audit selection.
 - `verify`: retest an existing audit without changing the product.
 
 Depth: `quick`, `standard`, or `deep`.
@@ -97,18 +109,6 @@ Depth: `quick`, `standard`, or `deep`.
 
 Temporary records may be created only in authorised local, test, staging, or preview environments. Production defaults to observation. Security testing is passive. The suite never deploys, publishes, submits, approves, attacks, or modifies the product.
 
-<!-- sills:shared-report-contract:start -->
-## Shared report and runtime-intake contract
+## Reporting
 
-Before writing any Full Sills audit output, read `references/report-contract.md` and use the bundled report template.
-
-- Begin with a professional status conclusion using the universal Sills health level and an audit-specific label.
-- Report the relevant status dimensions rather than hiding materially different strengths and weaknesses behind one label.
-- Include an explicit ship decision: `ready-to-ship`, `ready-with-conditions`, `not-ready`, or `insufficient-evidence`.
-- Include a prioritised Tasks section with traceable actions, acceptance criteria, and verification.
-- Keep the standard section order so every Sills report is immediately comparable.
-- When runtime web coverage is relevant and no usable URL is supplied or documented, ask once for live, staging, preview, or local URLs and their environment and role. Continue source analysis if none are provided.
-- In CI mode, never prompt; record absent runtime targets as a limitation.
-
-Recommended status dimensions: Accessibility; Product experience; Content quality; Codebase architecture; Security; Performance; Design system; Release readiness; Localization; Testing strategy; Privacy and trust; SEO; API design; Agent readiness.
-<!-- sills:shared-report-contract:end -->
+Before writing output, read `references/report-contract.md` and use the bundled templates. Human and machine-readable outputs must agree. Every conclusion must reflect actual coverage and limitations.

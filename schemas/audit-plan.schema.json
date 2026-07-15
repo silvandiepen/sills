@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/audit-plan.schema.json",
+  "title": "Sills audit execution plan",
+  "type": "object",
+  "required": ["selectedAudits", "sharedEvidence", "execution"],
+  "properties": {
+    "selectedAudits": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "sharedEvidence": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "execution": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["audit", "decision"],
+        "properties": {
+          "audit": { "type": "string" },
+          "decision": { "enum": ["run", "run-reduced-coverage", "manual-review", "skip-not-applicable", "skip-missing-capability"] },
+          "dependsOnEvidence": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "limitations": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
