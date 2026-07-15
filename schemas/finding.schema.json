@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/finding.schema.json",
+  "title": "Sills audit finding",
+  "type": "object",
+  "required": [
+    "id",
+    "kind",
+    "category",
+    "title",
+    "confidence",
+    "status",
+    "origin",
+    "scope",
+    "userImpact",
+    "recommendation",
+    "verification"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z]+-[0-9]{4}$"
+    },
+    "fingerprint": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "issue",
+        "positive",
+        "observation",
+        "limitation",
+        "manual-review"
+      ]
+    },
+    "category": {
+      "enum": [
+        "accessibility",
+        "experience",
+        "content",
+        "architecture",
+        "security",
+        "cross-cutting"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 4
+    },
+    "severity": {
+      "enum": [
+        "critical",
+        "major",
+        "moderate",
+        "minor",
+        "observation"
+      ]
+    },
+    "releaseBlocker": {
+      "type": "boolean"
+    },
+    "confidence": {
+      "enum": [
+        "confirmed",
+        "high",
+        "medium",
+        "low",
+        "requires-manual-verification"
+      ]
+    },
+    "status": {
+      "enum": [
+        "open",
+        "accepted",
+        "resolved",
+        "not-applicable",
+        "needs-review"
+      ]
+    },
+    "origin": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "source",
+          "runtime",
+          "automated",
+          "manual",
+          "documentation",
+          "inference"
+        ]
+      },
+      "minItems": 1
+    },
+    "scope": {
+      "type": "object"
+    },
+    "source": {
+      "type": "object"
+    },
+    "standards": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "userImpact": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "reproduction": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected": {
+      "type": "string"
+    },
+    "observed": {
+      "type": "string"
+    },
+    "recommendation": {
+      "type": "string"
+    },
+    "effort": {
+      "enum": [
+        "trivial",
+        "small",
+        "medium",
+        "large",
+        "unknown"
+      ]
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedFindings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

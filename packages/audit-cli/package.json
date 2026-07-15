@@ -1,0 +1,11 @@
+{
+  "name": "@sills/audit-cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Development and report scaffolding CLI for Sills.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "sills-audit-dev": "bin/sills-audit-dev.mjs"
+  }
+}

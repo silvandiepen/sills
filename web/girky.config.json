@@ -1,0 +1,7 @@
+{
+  "title": "Sills",
+  "description": "Evidence-based audit skills for exceptional websites and apps.",
+  "content": "./docs",
+  "homepage": "index.md",
+  "repository": "https://github.com/silvandiepen/sills"
+}

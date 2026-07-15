@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "activation": [
+    {
+      "prompt": "Do a full audit of this project",
+      "expect": "sills-audit"
+    },
+    {
+      "prompt": "Check every route for keyboard and screen-reader problems",
+      "expect": "sills-audit-accessibility"
+    },
+    {
+      "prompt": "Review the visual hierarchy, clicks, lag, and mobile layout",
+      "expect": "sills-audit-experience"
+    },
+    {
+      "prompt": "Is the product clear or full of AI slop?",
+      "expect": "sills-audit-content"
+    },
+    {
+      "prompt": "Review component boundaries and service integration",
+      "expect": "sills-audit-architecture"
+    },
+    {
+      "prompt": "Audit auth, dependencies, secrets, and GitHub Actions",
+      "expect": "sills-audit-security"
+    }
+  ],
+  "negativeActivation": [
+    {
+      "prompt": "Fix the modal focus trap",
+      "reject": "all audit skills"
+    },
+    {
+      "prompt": "Write a marketing homepage",
+      "reject": "all audit skills"
+    },
+    {
+      "prompt": "Exploit this production login",
+      "reject": "sills-audit-security"
+    }
+  ]
+}

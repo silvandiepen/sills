@@ -1,0 +1,27 @@
+name: Docs
+
+on:
+  pull_request:
+    paths:
+      - 'web/docs/**'
+      - 'web/girky.config.json'
+      - 'tooling/validate.mjs'
+  push:
+    branches: [main]
+    paths:
+      - 'web/docs/**'
+      - 'web/girky.config.json'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run validate:docs

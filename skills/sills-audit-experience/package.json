@@ -1,0 +1,38 @@
+{
+  "name": "sills-audit-experience",
+  "version": "0.1.0",
+  "description": "Visual, usability, interaction, responsiveness, and perceived-performance audit.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "sills-audit-experience": "bin/install.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "bin",
+    "references",
+    "scripts",
+    "agents",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "sills-audit-installer": "0.1.0"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude",
+    "codex",
+    "audit",
+    "experience"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/sills.git",
+    "directory": "skills/sills-audit-experience"
+  },
+  "homepage": "https://github.com/silvandiepen/sills/tree/main/skills/sills-audit-experience"
+}

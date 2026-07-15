@@ -1,0 +1,26 @@
+name: Evaluate skills
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run validate
+      - name: Inspect evaluation manifests
+        run: node -e "JSON.parse(require('fs').readFileSync('evals/activation/cases.json')); JSON.parse(require('fs').readFileSync('evals/seeded-defects/web-broken.json'));"

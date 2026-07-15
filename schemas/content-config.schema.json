@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/content-config.schema.json",
+  "title": "Sills content audit configuration",
+  "type": "object",
+  "properties": {
+    "product": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "audiences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "voice": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "readingLevel": {
+      "type": "string"
+    },
+    "preferredTerms": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "forbiddenTerms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supportedLocales": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

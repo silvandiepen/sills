@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/audit-report.schema.json",
+  "title": "Sills audit report",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "audit",
+    "scope",
+    "coverage",
+    "findings",
+    "limitations"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "audit": {
+      "type": "object",
+      "required": [
+        "id",
+        "date",
+        "mode",
+        "depth",
+        "skills"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "mode": {
+          "enum": [
+            "source",
+            "runtime",
+            "full",
+            "changed",
+            "ci",
+            "verify"
+          ]
+        },
+        "depth": {
+          "enum": [
+            "quick",
+            "standard",
+            "deep"
+          ]
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "toolVersions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "scope": {
+      "type": "object"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "finding.schema.json"
+      }
+    },
+    "positiveFindings": {
+      "type": "array",
+      "items": {
+        "$ref": "finding.schema.json"
+      }
+    },
+    "releaseBlockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidenceIndex": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,14 @@
+{
+  "fixture": "fixtures/web/broken/index.html",
+  "expected": [
+    "missing document language",
+    "low contrast",
+    "non-semantic clickable elements",
+    "missing input label",
+    "missing image alternative",
+    "unmanaged modal focus",
+    "vague error",
+    "generic AI filler",
+    "console error"
+  ]
+}

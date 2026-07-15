@@ -1,0 +1,7 @@
+{
+  "name": "architecture-broken",
+  "private": true,
+  "scripts": {
+    "test": "echo no tests"
+  }
+}
