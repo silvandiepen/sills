@@ -109,6 +109,18 @@ Depth: `quick`, `standard`, or `deep`.
 
 Temporary records may be created only in authorised local, test, staging, or preview environments. Production defaults to observation. Security testing is passive. The suite never deploys, publishes, submits, approves, attacks, or modifies the product.
 
-## Reporting
+<!-- sills:shared-report-contract:start -->
+## Shared report and runtime-intake contract
 
-Before writing output, read `references/report-contract.md` and use the bundled templates. Human and machine-readable outputs must agree. Every conclusion must reflect actual coverage and limitations.
+Before writing output, read `references/report-contract.md` and use the bundled templates.
+
+- Human and machine-readable outputs must agree.
+- Every conclusion must reflect actual coverage and limitations.
+- Begin with the required professional status conclusion and relevant status dimensions.
+- Include traceable tasks, evidence references, limitations, and untested areas.
+- Include a ship decision whenever the selected audit set includes full or release-readiness coverage.
+- When selected runtime-capable audits need a URL and none is documented, ask once for the relevant local, preview, staging, or production targets and roles.
+- In CI mode, never prompt; record missing runtime targets as limitations.
+
+Recommended status dimensions are limited to the selected audits and may include Accessibility; Product experience; Content quality; Codebase architecture; Security; Performance; Design system; Release readiness; Localization; Testing strategy; Privacy and trust; SEO; API design; Agent readiness.
+<!-- sills:shared-report-contract:end -->
