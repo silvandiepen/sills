@@ -8,6 +8,7 @@ on:
         required: true
         default: latest
   push:
+    branches: [main]
     tags:
       - 'v*'
 
@@ -18,6 +19,8 @@ jobs:
   publish:
     environment: npm
     runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN_PRESENT: ${{ secrets.NPM_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,7 +32,11 @@ jobs:
       - run: npm test
       - run: npm run validate
       - run: npm run pack:check
+      - name: Require NPM_TOKEN
+        if: env.NPM_TOKEN_PRESENT != 'true'
+        run: echo "::warning::NPM_TOKEN is not configured, so npm publishing was skipped."
       - name: Publish unpublished workspace versions
+        if: env.NPM_TOKEN_PRESENT == 'true'
         run: npm run publish:packages -- --tag "${{ inputs.npm_tag || 'latest' }}"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

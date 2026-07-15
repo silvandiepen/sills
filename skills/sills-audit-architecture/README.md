@@ -1,5 +1,9 @@
 # sills-audit-architecture
 
+<p>
+  <img src="https://raw.githubusercontent.com/silvandiepen/sills/main/sills.svg" alt="Sills" width="180">
+</p>
+
 Inspect whether the repository and application are structured clearly and remain maintainable.
 
 ## Install

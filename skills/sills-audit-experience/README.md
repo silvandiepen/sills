@@ -1,5 +1,9 @@
 # sills-audit-experience
 
+<p>
+  <img src="https://raw.githubusercontent.com/silvandiepen/sills/main/sills.svg" alt="Sills" width="180">
+</p>
+
 Evaluate how the product looks, behaves, responds, and communicates quality in real use.
 
 ## Install

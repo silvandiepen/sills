@@ -1,5 +1,9 @@
 # sills-audit-accessibility
 
+<p>
+  <img src="https://raw.githubusercontent.com/silvandiepen/sills/main/sills.svg" alt="Sills" width="180">
+</p>
+
 Find accessibility barriers across complete user processes, source code, running web products, and supported iOS projects.
 
 ## Install

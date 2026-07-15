@@ -1,5 +1,9 @@
 # sills-audit-content
 
+<p>
+  <img src="https://raw.githubusercontent.com/silvandiepen/sills/main/sills.svg" alt="Sills" width="180">
+</p>
+
 Determine whether the product is clear, coherent, credible, understandable, and written for its users.
 
 ## Install

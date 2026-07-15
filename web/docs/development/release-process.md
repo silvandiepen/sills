@@ -8,4 +8,4 @@ order: 31
 
 # Release process
 
-Update workspace versions, run tests and package checks, then trigger the protected release workflow. The workflow skips versions already present on npm and publishes sills-audit last.
+Update workspace versions, run tests and package checks, then merge to `main` or push a version tag. The protected release workflow skips versions already present on npm and publishes sills-audit last.

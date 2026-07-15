@@ -1,7 +1,11 @@
 node_modules/
+.wrangler/
 .DS_Store
 *.tgz
 coverage/
+public/
+web/public/
+web/docs/public/
 .tmp/
 tmp/
 audit/

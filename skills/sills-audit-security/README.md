@@ -1,5 +1,9 @@
 # sills-audit-security
 
+<p>
+  <img src="https://raw.githubusercontent.com/silvandiepen/sills/main/sills.svg" alt="Sills" width="180">
+</p>
+
 Perform a passive, non-destructive security review across application, repository, dependencies, CI/CD, supply chain, web, API, and supported iOS surfaces.
 
 ## Install

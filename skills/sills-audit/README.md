@@ -1,5 +1,9 @@
 # sills-audit
 
+<p>
+  <img src="https://raw.githubusercontent.com/silvandiepen/sills/main/sills.svg" alt="Sills" width="180">
+</p>
+
 Run one complete, evidence-based project audit across accessibility, product experience, content quality, codebase architecture, and security.
 
 ## Install the complete suite

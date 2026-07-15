@@ -17,6 +17,7 @@
     "validate": "node tooling/validate.mjs",
     "validate:skills": "node tooling/validate.mjs --skills",
     "validate:docs": "node tooling/validate.mjs --docs",
+    "build:docs": "node tooling/build-website.mjs",
     "pack:check": "node tooling/pack-check.mjs",
     "publish:packages": "node tooling/publish.mjs",
     "audit:create": "node packages/audit-cli/bin/sills-audit-dev.mjs create-run",
