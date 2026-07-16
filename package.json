@@ -26,6 +26,7 @@
     "bump:changed-packages": "node tooling/bump-changed-packages.mjs",
     "publish:packages": "node tooling/publish.mjs",
     "audit:create": "node packages/audit-cli/bin/sills-audit-dev.mjs create-run",
-    "audit:discover": "node packages/audit-cli/bin/sills-audit-dev.mjs discover"
+    "audit:discover": "node packages/audit-cli/bin/sills-audit-dev.mjs discover",
+    "audit:render": "node packages/audit-cli/bin/sills-audit-dev.mjs render-report"
   }
 }
