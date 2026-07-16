@@ -1,6 +1,6 @@
 {
   "name": "sills-audit",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Full-project audit orchestrator for accessibility, experience, content, architecture, security, performance, design systems, release readiness, localization, testing, privacy, SEO, APIs, and agent readiness.",
   "license": "MIT",
   "type": "module",
