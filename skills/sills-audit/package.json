@@ -1,6 +1,6 @@
 {
   "name": "sills-audit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Full-project audit orchestrator for accessibility, experience, content, architecture, security, performance, design systems, release readiness, localization, testing, privacy, SEO, APIs, and agent readiness.",
   "license": "MIT",
   "type": "module",
@@ -35,7 +35,7 @@
     "sills-audit-privacy-and-trust": "0.2.0",
     "sills-audit-seo": "0.2.0",
     "sills-audit-api-design": "0.2.0",
-    "sills-audit-agent-readiness": "0.1.0"
+    "sills-audit-agent-readiness": "0.2.0"
   },
   "keywords": [
     "agent-skills",

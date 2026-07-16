@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-agent-readiness",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Report-only audit for AI coding-agent instructions, project context, decisions, workflows, safety boundaries, documentation drift, and repository operability.",
   "license": "MIT",
   "type": "module",

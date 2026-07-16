@@ -22,6 +22,7 @@
     "validate:docs": "node tooling/validate.mjs --docs",
     "build:docs": "node tooling/build-website.mjs",
     "pack:check": "node tooling/pack-check.mjs",
+    "bump:changed-packages": "node tooling/bump-changed-packages.mjs",
     "publish:packages": "node tooling/publish.mjs",
     "audit:create": "node packages/audit-cli/bin/sills-audit-dev.mjs create-run",
     "audit:discover": "node packages/audit-cli/bin/sills-audit-dev.mjs discover"

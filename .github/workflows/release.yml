@@ -23,15 +23,32 @@ jobs:
       NPM_TOKEN_PRESENT: ${{ secrets.NPM_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
           registry-url: https://registry.npmjs.org
       - run: npm ci
+      - name: Bump changed package versions
+        if: github.ref == 'refs/heads/main'
+        run: npm run bump:changed-packages
       - run: npm test
       - run: npm run validate
       - run: npm run pack:check
+      - name: Commit version bumps
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if git diff --quiet; then
+            echo "No generated version bumps to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json package.json packages/*/package.json skills/*/package.json
+          git commit -m "chore: bump changed package versions"
+          git push
       - name: Require NPM_TOKEN
         if: env.NPM_TOKEN_PRESENT != 'true'
         run: echo "::warning::NPM_TOKEN is not configured, so npm publishing was skipped."
