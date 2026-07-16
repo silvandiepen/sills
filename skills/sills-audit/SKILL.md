@@ -4,7 +4,7 @@ description: Plan and coordinate evidence-based, report-only audits across the S
 license: MIT
 metadata:
   author: Sil van Diepen
-  version: "0.4.0"
+  version: "0.5.0"
 ---
 
 # Sills Audit Orchestrator
@@ -27,16 +27,59 @@ Do not run every specialist by default.
 1. Discover the project and the user's stated goal.
 2. Present the relevant specialist audits with a one-line explanation of each.
 3. Ask which audits the user wants to run, unless the request already names or clearly implies them.
-4. Recommend a focused set when useful, but keep the final selection explicit.
-5. In CI mode, use the configured selection and never prompt.
+4. Ask which depth the user wants: `quick`, `standard`, or `deep`, unless the request or CI configuration already states it.
+5. Recommend a focused audit set and depth when useful, but keep the final selection explicit.
+6. In CI mode, use the configured selection and depth and never prompt.
 
-A request for a "full audit" means all applicable specialists. A generic request such as "audit this project" requires selection before specialist execution.
+A request for a "full audit" means all applicable specialists, not automatically the deepest audit. A generic request such as "audit this project" requires both audit selection and depth selection before specialist execution.
+
+## Depth contract
+
+Depth is a run-level contract. It controls collector work, source coverage, runtime exploration, evidence density, specialist sampling, and reporting detail. A specialist may reduce coverage when capabilities are missing, but it must not silently reinterpret the selected depth.
+
+### Quick
+
+Use for changed code, pull requests, CI feedback, or an initial risk scan.
+
+- targeted source and configuration analysis;
+- run required collectors in targeted mode;
+- inspect changed or highest-risk surfaces rather than the whole product;
+- use no runtime or a small smoke sample when a safe target is already available;
+- collect minimal evidence needed to substantiate findings;
+- do not claim broad project coverage.
+
+### Standard
+
+Default recommendation for normal project audits.
+
+- representative source analysis across applications, routes, components, services, roles, and states;
+- run all relevant collectors in representative mode;
+- inspect primary journeys and representative edge states;
+- use runtime evidence when available and material;
+- cross-check source and runtime evidence;
+- collect normal evidence density and explicit coverage gaps.
+
+### Deep
+
+Use for release decisions, architecture reviews, major migrations, or high-risk products.
+
+- broad source analysis across all discoverable relevant applications and packages;
+- run relevant collectors in broad mode and resolve dynamic or ambiguous structures where practical;
+- explore substantially more routes, roles, states, environments, and edge cases;
+- correlate specialists and conflicting evidence;
+- collect high-density evidence and preserve richer raw output;
+- require explicit manual-review queues for unresolved high-risk areas;
+- report collector-level coverage and confidence.
+
+Do not promise clock-time estimates as guarantees. Before execution, describe relative effort and the factors that may expand scope, such as repository size, route count, runtime availability, role count, and selected audits.
+
+Record the selected depth and its resolved coverage settings in `manifest.json` using the audit-plan contract. Reports must state the actual achieved coverage when it falls below the requested depth.
 
 ## Shared evidence phase
 
 Before specialists begin, create one shared evidence plan and one run-level evidence index.
 
-Collect shared inputs once:
+Collect shared inputs once, at the selected depth:
 
 - repository and workspace discovery;
 - documentation and instruction inventory;
@@ -46,7 +89,7 @@ Collect shared inputs once:
 - screenshots, traces, console output, network records, accessibility trees, and performance measurements;
 - tool versions, command results, timestamps, and known limitations.
 
-Specialists consume evidence by stable evidence ID. They add specialist-only evidence to the same index rather than creating disconnected copies. When evidence already exists, reuse it unless freshness or scope requires recollection.
+Specialists consume evidence by stable evidence ID. They add specialist-only evidence to the same index rather than creating disconnected copies. When evidence already exists, reuse it unless freshness, scope, or the selected depth requires recollection.
 
 ## Capability and execution plan
 
@@ -58,7 +101,7 @@ Resolve each selected specialist's required and optional capabilities before exe
 - `skip-not-applicable`;
 - `skip-missing-capability`.
 
-Write the resolved selection, capabilities, shared evidence plan, and limitations to `manifest.json` before specialist reports are produced.
+Write the selected depth, resolved selection, capabilities, shared evidence plan, and limitations to `manifest.json` before specialist reports are produced.
 
 ## Specialists
 
@@ -84,15 +127,16 @@ Read only the selected specialist methodologies and references relevant to the d
 1. Read intent, constraints, and repository guidance.
 2. Discover the project once.
 3. Resolve audit selection.
-4. Resolve capabilities and coverage expectations.
-5. Prepare the audit directory and shared evidence index.
-6. Gather reusable evidence once.
-7. Run selected specialists, in parallel where their evidence dependencies permit.
-8. Deduplicate and correlate findings while preserving specialist IDs.
-9. Decide blockers and priority.
-10. Write coherent human and machine-readable reports.
-11. Prepare remediation handoff.
-12. Validate integrity, redaction, coverage, and limitations.
+4. Resolve depth.
+5. Resolve capabilities and coverage expectations.
+6. Prepare the audit directory and shared evidence index.
+7. Gather reusable evidence once at the selected depth.
+8. Run selected specialists, in parallel where their evidence dependencies permit.
+9. Deduplicate and correlate findings while preserving specialist IDs.
+10. Decide blockers and priority.
+11. Write coherent human and machine-readable reports.
+12. Prepare remediation handoff.
+13. Validate integrity, redaction, coverage, depth agreement, and limitations.
 
 ## Modes
 
@@ -100,10 +144,10 @@ Read only the selected specialist methodologies and references relevant to the d
 - `runtime`: running product only.
 - `full`: source plus runtime.
 - `changed`: changed files and affected runtime areas.
-- `ci`: non-interactive machine-readable execution using configured audit selection.
+- `ci`: non-interactive machine-readable execution using configured audit selection and depth.
 - `verify`: retest an existing audit without changing the product.
 
-Depth: `quick`, `standard`, or `deep`.
+Mode and depth are independent. For example, `source + deep`, `full + standard`, and `changed + quick` are valid combinations.
 
 ## Safety
 
@@ -115,7 +159,7 @@ Temporary records may be created only in authorised local, test, staging, or pre
 Before writing output, read `references/report-contract.md` and use the bundled templates.
 
 - Human and machine-readable outputs must agree.
-- Every conclusion must reflect actual coverage and limitations.
+- Every conclusion must reflect actual coverage, selected depth, and limitations.
 - Begin with the required professional status conclusion and relevant status dimensions.
 - Include traceable tasks, evidence references, limitations, and untested areas.
 - Include a ship decision whenever the selected audit set includes full or release-readiness coverage.
