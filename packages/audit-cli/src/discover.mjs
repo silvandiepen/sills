@@ -1,6 +1,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join, relative, resolve } from 'node:path';
 import { runBuiltInPlatformAdapters } from './platform-adapters.mjs';
+import { runBuiltInKnowledgeCollectors } from './knowledge-collectors.mjs';
 import { buildProjectKnowledge } from './project-knowledge.mjs';
 
 const IGNORE = new Set(['node_modules', '.git', 'dist', 'build', '.next', '.nuxt', 'coverage', 'audit', '.turbo']);
@@ -39,6 +40,7 @@ async function walk(root, current, result, depth = 0, maxDepth = 12) {
       continue;
     }
 
+    result.files.push(rel);
     if (entry.name === 'package.json') result.packageFiles.push(rel);
     if (DOC_NAMES.has(entry.name) || (entry.name.endsWith('.md') && depth <= 3)) result.documentation.push(rel);
     if (CONFIG_PATTERNS.some((pattern) => pattern.test(entry.name) || pattern.test(rel))) result.configFiles.push(rel);
@@ -61,6 +63,7 @@ export async function discoverProject(path, options = {}) {
   const root = resolve(path);
   const result = {
     root,
+    files: [],
     packageFiles: [],
     documentation: [],
     configFiles: [],
@@ -74,6 +77,7 @@ export async function discoverProject(path, options = {}) {
     platforms: [],
     ecosystems: [],
     platformFacts: [],
+    knowledgeFacts: [],
     projectKnowledge: null,
     warnings: [],
   };
@@ -101,14 +105,18 @@ export async function discoverProject(path, options = {}) {
     try { await readFile(join(root, file)); result.packageManagers.push(manager); } catch {}
   }
 
-  for (const key of ['frameworks', 'packageManagers', 'platforms', 'ecosystems', 'configFiles', 'documentation', 'workflowFiles', 'terraformFiles', 'iosProjects', 'androidProjects']) {
+  for (const key of ['files', 'frameworks', 'packageManagers', 'platforms', 'ecosystems', 'configFiles', 'documentation', 'workflowFiles', 'terraformFiles', 'iosProjects', 'androidProjects']) {
     result[key] = [...new Set(result[key])].sort();
   }
 
-  const adapterResult = await runBuiltInPlatformAdapters(result);
+  const [adapterResult, collectorResult] = await Promise.all([
+    runBuiltInPlatformAdapters(result),
+    runBuiltInKnowledgeCollectors(result),
+  ]);
   result.platformFacts = adapterResult.facts;
-  result.warnings.push(...adapterResult.warnings);
-  result.projectKnowledge = buildProjectKnowledge(result.platformFacts, result.warnings);
+  result.knowledgeFacts = collectorResult.facts;
+  result.warnings.push(...adapterResult.warnings, ...collectorResult.warnings);
+  result.projectKnowledge = buildProjectKnowledge([...result.platformFacts, ...result.knowledgeFacts], result.warnings);
 
   return result;
 }
