@@ -28,14 +28,24 @@ Discovery and built-in platform collectors
   ↓
 Shared project knowledge and evidence
   ↓
-Selected Audit Skills
+Selected Audit Skills at Quick, Standard or Deep depth
   ↓
 JSON, Markdown and HTML reports
   ↓
 Verification and remediation handoff
 ```
 
-The umbrella skill does not run every audit by default. For a generic request, it discovers the project, recommends relevant audits, asks for an explicit selection, gathers reusable evidence once, and coordinates only the selected specialists.
+The umbrella skill does not run every audit by default. For a generic request, it discovers the project, recommends relevant audits, asks for an explicit audit selection and depth, gathers reusable evidence once, and coordinates only the selected Audit Skills.
+
+## Audit depth
+
+| Depth | Coverage | Best for |
+|---|---|---|
+| **Quick** | Targeted source analysis and optional runtime smoke coverage | Pull requests, changed code, CI and first-pass risk scans |
+| **Standard** | Representative source and runtime coverage across primary journeys | Normal project audits |
+| **Deep** | Broad multi-surface, multi-role and edge-case coverage with richer evidence | Releases, migrations, architecture reviews and high-risk systems |
+
+Mode and depth are independent. A run may be `source + deep`, `full + standard`, or `changed + quick`. Reports record both the requested depth and the coverage actually achieved. See [Audit depth](docs/audit-depth.md).
 
 ## Why Sills is different
 
@@ -88,10 +98,10 @@ npx sills-audit-agent-readiness install
 $sills-audit Audit this project.
 ```
 
-A generic request prompts for the relevant Audit Skills. To request every applicable specialist explicitly:
+A generic request prompts for both the relevant Audit Skills and one of three depths: Quick, Standard, or Deep. To request every applicable Audit Skill explicitly:
 
 ```text
-$sills-audit Do a full audit of this project.
+$sills-audit Do a full standard audit of this project.
 ```
 
 The default output is a dated folder:
@@ -116,6 +126,7 @@ audit/2026-07-15/
 ## Documentation
 
 - [Support matrix](docs/support-matrix.md)
+- [Audit depth](docs/audit-depth.md)
 - [Terminology](docs/terminology.md)
 - [Discovery and platform support](docs/architecture/discovery-and-platform-support.md)
 - [Shared project knowledge](docs/architecture/knowledge-model.md)
