@@ -3,8 +3,22 @@
   "$id": "https://sills.dev/schemas/audit-plan.schema.json",
   "title": "Sills audit execution plan",
   "type": "object",
-  "required": ["selectedAudits", "sharedEvidence", "execution"],
+  "required": ["depth", "selectedAudits", "sharedEvidence", "execution"],
   "properties": {
+    "depth": {
+      "type": "object",
+      "required": ["level", "sourceCoverage", "runtimeCoverage", "evidenceDensity", "reason"],
+      "properties": {
+        "level": { "enum": ["quick", "standard", "deep"] },
+        "sourceCoverage": { "enum": ["targeted", "representative", "broad"] },
+        "runtimeCoverage": { "enum": ["none-or-smoke", "representative", "broad-multi-role"] },
+        "evidenceDensity": { "enum": ["minimal", "normal", "high"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "estimatedEffort": { "type": "string" },
+        "userSelected": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
     "selectedAudits": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
     "sharedEvidence": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
     "execution": {
