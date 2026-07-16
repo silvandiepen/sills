@@ -14,7 +14,7 @@ try {
   await mkdir(join(staging, 'assets'), { recursive: true });
   await cp(join(root, 'sills.svg'), join(staging, 'assets', 'logo.svg'));
 
-  const result = spawnSync('npx', ['girky@1.31.7'], {
+  const result = spawnSync('npx', ['girky@latest'], {
     cwd: staging,
     encoding: 'utf8',
     stdio: 'inherit',
