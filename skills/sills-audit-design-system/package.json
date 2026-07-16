@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-design-system",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Tokens, components, states, adoption, governance, and visual-system audit",
   "license": "MIT",
   "type": "module",
@@ -21,7 +21,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "sills-audit-installer": "0.1.0"
+    "sills-audit-installer": "0.1.1"
   },
   "keywords": [
     "agent-skills",

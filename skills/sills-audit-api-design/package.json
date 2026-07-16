@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-api-design",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Contract, consistency, lifecycle, error, security, and developer-experience audit",
   "license": "MIT",
   "type": "module",
@@ -21,7 +21,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "sills-audit-installer": "0.1.0"
+    "sills-audit-installer": "0.1.1"
   },
   "keywords": [
     "agent-skills",

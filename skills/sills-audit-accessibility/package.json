@@ -1,6 +1,6 @@
 {
   "name": "sills-audit-accessibility",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Accessibility and inclusive-design audit for complete products.",
   "license": "MIT",
   "type": "module",
@@ -20,7 +20,7 @@
     "LICENSE"
   ],
   "dependencies": {
-    "sills-audit-installer": "0.1.0"
+    "sills-audit-installer": "0.1.1"
   },
   "keywords": [
     "agent-skills",
