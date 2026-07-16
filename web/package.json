@@ -1,0 +1,26 @@
+{
+  "name": "sills-web",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Public website for Sills audit skills.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@sil/ui": "^2.6.1",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "bemm": "^1.4.0",
+    "nizel": "0.1.13",
+    "vite": "^5.4.19",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "sass": "^1.89.2",
+    "typescript": "^5.8.3",
+    "vue-tsc": "^2.2.12"
+  }
+}

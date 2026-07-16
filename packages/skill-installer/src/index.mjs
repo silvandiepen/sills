@@ -1,4 +1,4 @@
-import { cp, mkdir, rm, stat } from 'node:fs/promises';
+import { cp, mkdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -16,8 +16,9 @@ function parseArgs(argv) {
   const requestedAgents = [];
   if (args.has('--codex')) requestedAgents.push('codex');
   if (args.has('--claude')) requestedAgents.push('claude');
+  const command = !argv[0] || argv[0].startsWith('--') ? 'install' : argv[0];
   return {
-    command: ['install', 'help'].includes(argv[0]) ? argv[0] : 'install',
+    command,
     agents: requestedAgents.length ? requestedAgents : ['codex', 'claude'],
     global: args.has('--global'),
     force: args.has('--force'),
@@ -44,7 +45,7 @@ async function exists(path) {
 export async function installSkillPackage({ packageRoot, skillName, argv = process.argv.slice(2), cwd = process.cwd() }) {
   const options = parseArgs(argv);
   if (!['install', 'help'].includes(options.command)) {
-    throw new Error(`Unknown command: ${options.command}`);
+    throw new Error(`Unknown command: ${options.command}. Use "install" to install skills, or invoke $${skillName} from your agent after installation.`);
   }
   if (options.command === 'help') {
     return { help: true, message: helpText(skillName) };
@@ -66,6 +67,7 @@ export async function installSkillPackage({ packageRoot, skillName, argv = proce
       if (!(await exists(source))) continue;
       await cp(source, join(target, entry), { recursive: true });
     }
+    await rewriteSkillName(join(target, 'SKILL.md'), skillName);
   }
   return { help: false, skillName, actions, dryRun: options.dryRun };
 }
@@ -80,6 +82,13 @@ export async function installSkillSuite({ packages, argv = process.argv.slice(2)
 
 export function packageRootFromMeta(metaUrl) {
   return resolve(dirname(fileURLToPath(metaUrl)), '..');
+}
+
+async function rewriteSkillName(skillFile, skillName) {
+  if (!(await exists(skillFile))) return;
+  const text = await readFile(skillFile, 'utf8');
+  const next = text.replace(/^(---\n(?:.*\n)*?name:\s*)([^\n]+)(\n)/, `$1${skillName}$3`);
+  if (next !== text) await writeFile(skillFile, next);
 }
 
 export function helpText(name = 'sills-audit') {

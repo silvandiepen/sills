@@ -16,7 +16,7 @@ hide: true
 npx sills-audit install
 ```
 
-The default installs all skills into both `.agents/skills/` and `.claude/skills/` in the current project.
+The default installs the `$sills` shortcut, `$sills-audit`, and every specialist skill into both `.agents/skills/` and `.claude/skills/` in the current project.
 
 ```bash
 npx sills-audit install --codex
@@ -31,6 +31,12 @@ $sills-audit Do a full audit of this project.
 ```
 
 Sills defaults to source and runtime analysis when both are available, standard depth, and a dated `audit/` directory.
+
+Use the shortcut for focused audits:
+
+```text
+$sills audit api
+```
 
 ## Run a specialist
 

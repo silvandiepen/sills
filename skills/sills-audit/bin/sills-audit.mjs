@@ -23,7 +23,10 @@ const names = [
   "sills-audit-api-design",
   "sills-audit-agent-readiness"
 ];
-const packages = [{ skillName: 'sills-audit', packageRoot: selfRoot }];
+const packages = [
+  { skillName: 'sills', packageRoot: selfRoot },
+  { skillName: 'sills-audit', packageRoot: selfRoot }
+];
 for (const name of names) packages.push({ skillName: name, packageRoot: packageRootFor(name) });
 
 try {

@@ -23,6 +23,8 @@ This copies the canonical skills into:
 .claude/skills/
 ```
 
+The full install adds the `$sills` shortcut, the `$sills-audit` umbrella skill, and every specialist skill.
+
 ## User installation
 
 ```bash
@@ -45,3 +47,10 @@ npx sills-audit-content install
 - `--target PATH`: use a custom skills root.
 
 The installer copies files rather than creating links, because temporary `npx` package locations are not stable.
+
+## Invoke
+
+```text
+$sills audit api
+$sills-audit Do a full audit of this project.
+```

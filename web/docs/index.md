@@ -18,11 +18,12 @@ A Sills audit starts by discovering what the product is, who uses it, how it is 
 npx sills-audit install
 ```
 
-This installs all skills into both `.agents/skills/` and `.claude/skills/` in the current project. Use `--codex`, `--claude`, `--global`, `--force`, `--dry-run`, or `--target PATH` when you need a narrower install.
+This installs the `$sills` shortcut, `$sills-audit`, and all specialist skills into both `.agents/skills/` and `.claude/skills/` in the current project. Use `--codex`, `--claude`, `--global`, `--force`, `--dry-run`, or `--target PATH` when you need a narrower install.
 
 ## Run
 
 ```text
+$sills audit api
 $sills-audit Do a full audit of this project.
 ```
 

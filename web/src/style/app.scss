@@ -1,0 +1,240 @@
+@use "@sil/ui/defaults" with (
+  $project-colors: (
+    "dark": #0f1827,
+    "light": #fcfcf5,
+    "accent-dark": #0f1827,
+    "accent-light": #fcfcf5,
+    "primary": #98cc65,
+    "secondary": #67b5d8,
+    "tertiary": #d865a6,
+    "quaternary": #fee165,
+    "green": #98cc65,
+    "pink": #d865a6,
+    "blue": #67b5d8,
+    "yellow": #fee165,
+    "ink": #0f1827,
+    "cream": #fcfcf5,
+    "success": #98cc65,
+    "warning": #fee165,
+    "error": #d865a6,
+    "info": #67b5d8,
+    "border": #e6e6dc,
+  )
+);
+@use "@sil/ui/styles/main";
+
+:root {
+  --palette-green: #98cc65;
+  --palette-pink: #d865a6;
+  --palette-ink: #0f1827;
+  --palette-cream: #fcfcf5;
+  --palette-yellow: #fee165;
+  --palette-blue: #67b5d8;
+  --color-green: var(--palette-green);
+  --color-green-text: var(--palette-ink);
+  --color-green-contrast: var(--color-green-text);
+  --color-green-dark: color-mix(in srgb, var(--palette-green), var(--palette-ink) 42%);
+  --color-green-dark-text: var(--palette-cream);
+  --color-green-dark-contrast: var(--color-green-dark-text);
+  --color-blue: var(--palette-blue);
+  --color-blue-text: var(--palette-ink);
+  --color-blue-contrast: var(--color-blue-text);
+  --color-dark: var(--palette-ink);
+  --color-dark-text: var(--palette-cream);
+  --color-dark-contrast: var(--color-dark-text);
+  --color-yellow: var(--palette-yellow);
+  --color-yellow-text: var(--palette-ink);
+  --color-yellow-contrast: var(--color-yellow-text);
+  --color-pink: var(--palette-pink);
+  --color-pink-text: var(--palette-ink);
+  --color-pink-contrast: var(--color-pink-text);
+  --color-ink: var(--palette-ink);
+  --color-ink-text: var(--palette-cream);
+  --color-ink-contrast: var(--color-ink-text);
+  --color-cream: var(--palette-cream);
+  --color-cream-text: var(--palette-ink);
+  --color-cream-contrast: var(--color-cream-text);
+  --color-light: var(--palette-cream);
+  --color-light-text: var(--palette-ink);
+  --color-light-contrast: var(--color-light-text);
+  --color-background: var(--palette-cream);
+  --color-surface: #ffffff;
+  --color-surface-muted: color-mix(in srgb, var(--palette-cream), var(--palette-green) 12%);
+  --color-header: color-mix(in srgb, var(--palette-cream), var(--palette-ink) 5%);
+  --color-heading: var(--palette-ink);
+  --color-text: color-mix(in srgb, var(--palette-ink), var(--palette-cream) 18%);
+  --color-muted: color-mix(in srgb, var(--palette-ink), var(--palette-cream) 44%);
+  --color-border: color-mix(in srgb, var(--palette-ink), var(--palette-cream) 84%);
+  --color-accent: color-mix(in srgb, var(--palette-green), var(--palette-ink) 22%);
+  --color-accent-strong: color-mix(in srgb, var(--palette-green), var(--palette-ink) 48%);
+  --color-code: var(--palette-ink);
+  --color-code-text: var(--palette-cream);
+  --color-inline-code: color-mix(in srgb, var(--color-accent), transparent 90%);
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", Consolas, monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-s: 0.875rem;
+  --font-size-body: 1rem;
+  --font-size-l: 1.125rem;
+  --font-size-xl: clamp(1.6rem, 2vw, 2.1rem);
+  --font-size-2xl: clamp(2rem, 4vw, 3.75rem);
+  --font-size-hero: clamp(2.75rem, 6vw, 4.45rem);
+  --space-2xs: 0.375rem;
+  --space-xs: 0.625rem;
+  --space-s: 0.875rem;
+  --space-m: 1.25rem;
+  --space-l: 1.75rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --page-gutter: clamp(1.25rem, 4vw, 2rem);
+  --container-width: 70rem;
+  --copy-width: 43rem;
+  --card-min-height: 10.5rem;
+  --hero-aside-min-width: 20rem;
+  --split-aside-min-width: 18rem;
+  --sidebar-width: 14rem;
+  --sticky-offset: 7rem;
+  --logo-width: 4em;
+  --control-height: 2.25rem;
+  --radius-xs: 0.25rem;
+  --radius-s: 0.5rem;
+  --radius-m: 0.75rem;
+  --letter-spacing-label: 0.08em;
+}
+
+:root[data-color-mode="dark"] {
+  --color-background: color-mix(in srgb, var(--palette-ink), black 8%);
+  --color-surface: color-mix(in srgb, var(--palette-ink), var(--palette-cream) 8%);
+  --color-surface-muted: color-mix(in srgb, var(--palette-ink), var(--palette-blue) 12%);
+  --color-header: color-mix(in srgb, var(--palette-ink), black 24%);
+  --color-heading: var(--palette-cream);
+  --color-text: color-mix(in srgb, var(--palette-cream), var(--palette-ink) 18%);
+  --color-muted: color-mix(in srgb, var(--palette-cream), var(--palette-ink) 42%);
+  --color-border: color-mix(in srgb, var(--palette-cream), var(--palette-ink) 78%);
+  --color-accent: var(--palette-green);
+  --color-accent-strong: color-mix(in srgb, var(--palette-green), var(--palette-cream) 18%);
+  --color-code: color-mix(in srgb, var(--palette-ink), black 28%);
+  --color-code-text: var(--palette-cream);
+  --color-inline-code: color-mix(in srgb, var(--color-accent), transparent 82%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  height: auto;
+  min-height: 100%;
+  line-height: 1.5;
+  overflow-y: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  height: auto;
+  margin: 0;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.icon,
+.ui-icon,
+.home-view :where(svg:not(.site-header__logo svg):not(.site-footer__logo svg)),
+.document-view :where(svg),
+.site-footer :where(svg),
+.site-header :where(svg),
+.page-card :where(svg),
+.color-mode-switch :where(svg) {
+  display: inline-grid;
+  width: 1.25em;
+  height: 1.25em;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.icon svg,
+.ui-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent), transparent 76%);
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+.color-mode-switch {
+  display: inline-grid;
+  width: var(--control-height);
+  height: var(--control-height);
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-heading);
+  cursor: pointer;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-accent-strong);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-accent), transparent 62%);
+  outline-offset: 3px;
+}
+
+.site-header__action.button {
+  --button-border: none;
+  min-height: var(--control-height);
+  border-radius: 999px;
+  padding: 0 var(--space-m);
+  background: transparent;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-header__action.button--primary {
+  --button-background: var(--color-accent);
+  --button-color-text: var(--palette-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+  }
+}

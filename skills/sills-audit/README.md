@@ -12,12 +12,13 @@ Run one complete, evidence-based project audit across fourteen specialist discip
 npx sills-audit install
 ```
 
-This installs the umbrella skill and all fourteen specialists for Codex and Claude Code. Use `--codex`, `--claude`, or `--global` to narrow installation.
+This installs the `$sills` shortcut, the `$sills-audit` umbrella skill, and all fourteen specialists for Codex and Claude Code. Use `--codex`, `--claude`, or `--global` to narrow installation.
 
 ## Use
 
 ```text
 $sills-audit Do a full audit of this project.
+$sills audit api
 ```
 
 ## Specialist coverage

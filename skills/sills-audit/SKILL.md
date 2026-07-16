@@ -33,6 +33,27 @@ Do not run every specialist by default.
 
 A request for a "full audit" means all applicable specialists, not automatically the deepest audit. A generic request such as "audit this project" requires both audit selection and depth selection before specialist execution.
 
+## Invocation shortcuts
+
+When invoked as `$sills`, treat the first words after the skill name as a compact command:
+
+- `audit api`: run or plan only `$sills-audit-api-design`.
+- `audit accessibility`: run or plan only `$sills-audit-accessibility`.
+- `audit architecture`: run or plan only `$sills-audit-architecture`.
+- `audit content`: run or plan only `$sills-audit-content`.
+- `audit design-system` or `audit design system`: run or plan only `$sills-audit-design-system`.
+- `audit experience` or `audit ux`: run or plan only `$sills-audit-experience`.
+- `audit performance`: run or plan only `$sills-audit-performance`.
+- `audit privacy`: run or plan only `$sills-audit-privacy-and-trust`.
+- `audit release`: run or plan only `$sills-audit-release-readiness`.
+- `audit security`: run or plan only `$sills-audit-security`.
+- `audit seo`: run or plan only `$sills-audit-seo`.
+- `audit testing`: run or plan only `$sills-audit-testing-strategy`.
+- `audit localization` or `audit i18n`: run or plan only `$sills-audit-localization`.
+- `audit agent-readiness`, `audit agents`, or `audit agent`: run or plan only `$sills-audit-agent-readiness`.
+
+For example, `$sills audit api` means an API design audit. If the shortcut omits depth, ask for `quick`, `standard`, or `deep` unless the surrounding request clearly implies it.
+
 ## Depth contract
 
 Depth is a run-level contract. It controls collector work, source coverage, runtime exploration, evidence density, specialist sampling, and reporting detail. A specialist may reduce coverage when capabilities are missing, but it must not silently reinterpret the selected depth.

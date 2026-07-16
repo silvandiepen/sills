@@ -22,6 +22,7 @@ npx sills-audit install
 ## Use
 
 ```text
+$sills audit api
 $sills-audit Audit this project.
 ```
 

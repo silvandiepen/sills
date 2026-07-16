@@ -1,11 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, rm, writeFile, mkdir } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile, mkdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createRun } from '../packages/audit-cli/src/create-run.mjs';
 import { discoverProject } from '../packages/audit-cli/src/discover.mjs';
 import { validateReportFile } from '../packages/audit-cli/src/validate-report.mjs';
+import { installSkillPackage, installSkillSuite } from '../packages/skill-installer/src/index.mjs';
 
 async function touch(path, content = '') {
   await mkdir(join(path, '..'), { recursive: true }).catch(() => {});
@@ -96,5 +97,38 @@ test('web and native adapters identify second-wave technologies', async () => {
     const technologies = new Set(result.platformFacts.map((item) => item.technology));
     for (const technology of ['next', 'electron', 'react-native', 'expo']) assert.ok(technologies.has(technology), `missing ${technology}`);
     assert.ok(!technologies.has('react'), 'Next applications should not emit a duplicate generic React framework fact');
+  } finally { await rm(temp, { recursive: true, force: true }); }
+});
+
+test('installer can create the sills shortcut from the umbrella skill', async () => {
+  const temp = await mkdtemp(join(tmpdir(), 'sills-alias-'));
+  try {
+    const packageRoot = join(process.cwd(), 'skills', 'sills-audit');
+    await installSkillSuite({
+      packages: [
+        { skillName: 'sills', packageRoot },
+        { skillName: 'sills-audit', packageRoot }
+      ],
+      argv: ['install', '--target', temp],
+      cwd: temp
+    });
+
+    assert.match(await readFile(join(temp, 'sills', 'SKILL.md'), 'utf8'), /^name: sills$/m);
+    assert.match(await readFile(join(temp, 'sills-audit', 'SKILL.md'), 'utf8'), /^name: sills-audit$/m);
+  } finally { await rm(temp, { recursive: true, force: true }); }
+});
+
+test('installer rejects shell-style audit invocations', async () => {
+  const temp = await mkdtemp(join(tmpdir(), 'sills-install-command-'));
+  try {
+    await assert.rejects(
+      installSkillPackage({
+        packageRoot: join(process.cwd(), 'skills', 'sills-audit'),
+        skillName: 'sills',
+        argv: ['audit', 'api'],
+        cwd: temp
+      }),
+      /Unknown command: audit/
+    );
   } finally { await rm(temp, { recursive: true, force: true }); }
 });

@@ -8,6 +8,7 @@
     "node": ">=20"
   },
   "bin": {
+    "sills": "bin/sills-audit.mjs",
     "sills-audit": "bin/sills-audit.mjs"
   },
   "files": [

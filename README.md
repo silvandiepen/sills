@@ -84,7 +84,7 @@ Auditing is the first application of the Sills knowledge and evidence model. Fut
 npx sills-audit install
 ```
 
-This installs the complete suite into both `.agents/skills/` and `.claude/skills/` in the current project. Use `--codex`, `--claude`, or `--global` to narrow the destination.
+This installs the `$sills` shortcut, the `$sills-audit` umbrella skill, and all specialists into both `.agents/skills/` and `.claude/skills/` in the current project. Use `--codex`, `--claude`, or `--global` to narrow the destination.
 
 ```bash
 npx sills-audit install --codex
@@ -96,6 +96,7 @@ npx sills-audit-agent-readiness install
 
 ```text
 $sills-audit Audit this project.
+$sills audit api
 ```
 
 A generic request prompts for both the relevant Audit Skills and one of three depths: Quick, Standard, or Deep. To request every applicable Audit Skill explicitly:
