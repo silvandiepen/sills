@@ -2,6 +2,7 @@
 import { createRun } from '../src/create-run.mjs';
 import { discoverProject } from '../src/discover.mjs';
 import { validateReportFile } from '../src/validate-report.mjs';
+import { renderReport } from '../src/render-report.mjs';
 
 const [command = 'help', ...args] = process.argv.slice(2);
 const get = (name, fallback) => {
@@ -24,8 +25,18 @@ try {
     const file = get('--file', args.find((arg) => !arg.startsWith('--'));
     if (!file) throw new Error('Provide --file path/to/report.json');
     console.log(JSON.stringify(await validateReportFile(file), null, 2));
+  } else if (command === 'render-report') {
+    const result = await renderReport({
+      directory: get('--directory'),
+      markdown: get('--markdown'),
+      report: get('--report'),
+      output: get('--output'),
+      title: get('--title'),
+      nizelVersion: get('--nizel-version', 'latest'),
+    });
+    console.log(result.outputFile);
   } else {
-    console.log('Usage: sills-audit-dev <create-run|discover|validate-report> [options]');
+    console.log('Usage: sills-audit-dev <create-run|discover|validate-report|render-report> [options]');
   }
 } catch (error) {
   console.error(error.message);
