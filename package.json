@@ -2,7 +2,7 @@
   "name": "sills-monorepo",
   "version": "0.3.0",
   "private": true,
-  "description": "Cross-agent audit skills for exceptional websites and apps.",
+  "description": "Engineering intelligence skills for AI coding agents.",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -17,9 +17,10 @@
   ],
   "scripts": {
     "test": "node --test",
-    "validate": "node tooling/validate.mjs",
+    "validate": "node tooling/validate.mjs && node tooling/validate-contracts.mjs",
     "validate:skills": "node tooling/validate.mjs --skills",
     "validate:docs": "node tooling/validate.mjs --docs",
+    "validate:contracts": "node tooling/validate-contracts.mjs",
     "build:docs": "node tooling/build-website.mjs",
     "pack:check": "node tooling/pack-check.mjs",
     "bump:changed-packages": "node tooling/bump-changed-packages.mjs",
