@@ -4,7 +4,7 @@ description: Plan and coordinate evidence-based, report-only audits across the S
 license: MIT
 metadata:
   author: Sil van Diepen
-  version: "0.4.0"
+  version: "0.5.0"
 ---
 
 # Sills Audit Orchestrator
@@ -15,7 +15,7 @@ Plan first, then coordinate only the audits the user selects or that are explici
 
 - This is report-only. Never modify the audited project outside the selected audit directory.
 - Do not install dependencies into the project, change lockfiles, run migrations, invent environment variables, seed production data, deploy, publish, or approve releases.
-- Reuse shared discovery, source inventory, runtime sessions, screenshots, traces, network records, logs, accessibility snapshots, and measurements across specialists.
+- Reuse shared discovery, project knowledge, source inventory, runtime sessions, screenshots, traces, network records, logs, accessibility snapshots, and measurements across specialists.
 - Never equate automated passes with compliance, security, readiness, rankings, performance, agent readiness, or defect-free status.
 - Read project documentation before applying general guidance.
 - Include evidence-backed positive findings.
@@ -32,21 +32,31 @@ Do not run every specialist by default.
 
 A request for a "full audit" means all applicable specialists. A generic request such as "audit this project" requires selection before specialist execution.
 
-## Shared evidence phase
+## Shared knowledge and evidence phase
 
-Before specialists begin, create one shared evidence plan and one run-level evidence index.
+Before specialists begin, create one run-level `project-knowledge.json`, one shared evidence plan, and one evidence index.
 
-Collect shared inputs once:
+Run built-in platform and knowledge collectors once. Collect and normalize:
 
-- repository and workspace discovery;
+- repositories, packages, workspaces, applications, and source roots;
+- frameworks, native targets, services, infrastructure, and delivery configuration;
+- routes, API and function entry points, authentication and authorization surfaces;
+- data models, migrations, components, tests, and localization resources;
 - documentation and instruction inventory;
-- application, route, package, platform, service, API, and data-flow inventory;
-- runtime targets and environments;
-- authenticated sessions and available roles;
+- runtime targets, environments, authenticated sessions, and available roles;
 - screenshots, traces, console output, network records, accessibility trees, and performance measurements;
 - tool versions, command results, timestamps, and known limitations.
 
-Specialists consume evidence by stable evidence ID. They add specialist-only evidence to the same index rather than creating disconnected copies. When evidence already exists, reuse it unless freshness or scope requires recollection.
+Each selected specialist must:
+
+1. read `project-knowledge.json` before starting domain-specific discovery;
+2. reuse existing knowledge nodes and stable evidence IDs;
+3. collect only missing or stale domain-specific evidence;
+4. add new facts to the shared knowledge model rather than maintaining a disconnected inventory;
+5. record which knowledge node and evidence IDs support each finding;
+6. never reinterpret an absent collector result as proof that a surface does not exist.
+
+Specialists must not independently rebuild routes, auth, API, data, deployment, component, testing, or localization inventories when those collectors already ran successfully. Recollection is allowed only when scope, freshness, parsing depth, or runtime evidence requires it, and the reason must be recorded.
 
 ## Capability and execution plan
 
@@ -58,7 +68,9 @@ Resolve each selected specialist's required and optional capabilities before exe
 - `skip-not-applicable`;
 - `skip-missing-capability`.
 
-Write the resolved selection, capabilities, shared evidence plan, and limitations to `manifest.json` before specialist reports are produced.
+Write the resolved selection, collector results, required knowledge kinds, capabilities, shared evidence plan, execution dependencies, and limitations to `manifest.json` before specialist reports are produced.
+
+Specialists may run in parallel only after their required shared collectors have completed. A specialist that needs richer knowledge may extend the shared model first; dependent specialists must consume the updated version.
 
 ## Specialists
 
@@ -85,14 +97,16 @@ Read only the selected specialist methodologies and references relevant to the d
 2. Discover the project once.
 3. Resolve audit selection.
 4. Resolve capabilities and coverage expectations.
-5. Prepare the audit directory and shared evidence index.
-6. Gather reusable evidence once.
-7. Run selected specialists, in parallel where their evidence dependencies permit.
-8. Deduplicate and correlate findings while preserving specialist IDs.
-9. Decide blockers and priority.
-10. Write coherent human and machine-readable reports.
-11. Prepare remediation handoff.
-12. Validate integrity, redaction, coverage, and limitations.
+5. Prepare the audit directory.
+6. Run built-in platform and knowledge collectors once.
+7. Write `project-knowledge.json`, the shared evidence index, and the execution plan.
+8. Run selected specialists after their required knowledge is available, in parallel where dependencies permit.
+9. Merge specialist-added facts and evidence into the shared stores.
+10. Deduplicate and correlate findings while preserving specialist IDs.
+11. Decide blockers and priority.
+12. Write coherent human and machine-readable reports.
+13. Prepare remediation handoff.
+14. Validate contracts, integrity, redaction, coverage, and limitations.
 
 ## Modes
 
@@ -117,7 +131,7 @@ Before writing output, read `references/report-contract.md` and use the bundled 
 - Human and machine-readable outputs must agree.
 - Every conclusion must reflect actual coverage and limitations.
 - Begin with the required professional status conclusion and relevant status dimensions.
-- Include traceable tasks, evidence references, limitations, and untested areas.
+- Include traceable tasks, evidence references, knowledge-node references, limitations, and untested areas.
 - Include a ship decision whenever the selected audit set includes full or release-readiness coverage.
 - When selected runtime-capable audits need a URL and none is documented, ask once for the relevant local, preview, staging, or production targets and roles.
 - In CI mode, never prompt; record missing runtime targets as limitations.
