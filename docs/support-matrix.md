@@ -1,35 +1,57 @@
 # Sills support matrix
 
-## Audit specialists
+Sills describes support by depth. A platform is not called fully supported merely because its package name was found.
 
-Sills currently provides the umbrella orchestrator and specialist audits for accessibility, product experience, content, architecture, security, performance, design systems, release readiness, localization, testing strategy, privacy and trust, SEO, API design, and agent readiness.
+## Support levels
 
-The umbrella does not run every specialist by default. It discovers the project, recommends relevant specialists, asks for an explicit selection when the request is generic, gathers shared evidence once, and coordinates only the selected audits.
-
-## Project discovery
-
-| Area | Current support |
+| Level | Meaning |
 |---|---|
-| JavaScript package managers | npm, pnpm, Yarn, Bun |
-| Workspaces | package.json workspaces and discovered package manifests |
-| Frontend frameworks | Vue, Nuxt; basic identification for React, Next.js, Angular, Svelte and SvelteKit |
-| Native and desktop | Capacitor and iOS; basic identification for Android, Electron, React Native and Expo |
-| Services | Cloudflare Workers and Supabase |
-| Infrastructure | Docker and Terraform identification |
-| Backends | ecosystem identification for Rust, Go, Python, PHP, Ruby and .NET |
-| Documentation | standard repository guidance and shallow Markdown inventory |
-| Configuration | Vite, framework, testing, linting, workspace, native, Cloudflare and Supabase configurations |
+| Detected | Sills recognizes dependencies, manifests, configuration, or project structure. |
+| Normalized | Discovery produces structured platform facts with evidence and confidence. |
+| Collected | Dedicated collectors build reusable inventories such as routes, APIs, auth, data, deployment, components, tests, or localization. |
+| Runtime-capable | The invoking environment can gather browser, native, service, or deployment evidence for the platform. |
+| Specialist-aware | Audit Skills include platform-specific interpretation where universal rules are insufficient. |
 
-“Basic identification” means discovery can recognize the technology but does not yet produce a complete normalized knowledge model for it.
+## Built-in platform support
 
-## Evidence and reporting
+| Platform | Detected | Normalized | Collected | Runtime-capable | Specialist-aware |
+|---|:---:|:---:|:---:|:---:|:---:|
+| JavaScript packages and workspaces | Yes | Yes | Partial | Environment-dependent | Yes |
+| Vue | Yes | Yes | Planned | Browser-dependent | Yes |
+| Nuxt | Yes | Yes | Planned | Browser/server-dependent | Yes |
+| React | Yes | Yes | Planned | Browser-dependent | Yes |
+| Next.js | Yes | Yes | Planned | Browser/server-dependent | Yes |
+| Angular | Yes | Yes | Planned | Browser-dependent | Yes |
+| SvelteKit | Yes | Yes | Planned | Browser/server-dependent | Yes |
+| Capacitor | Yes | Yes | Partial | Simulator/device-dependent | Yes |
+| iOS | Yes | Yes | Planned | macOS/simulator-dependent | Partial |
+| Android | Yes | Yes | Planned | SDK/emulator-dependent | Partial |
+| Electron | Yes | Yes | Planned | Desktop runtime-dependent | Partial |
+| React Native | Yes | Yes | Planned | Simulator/device-dependent | Partial |
+| Expo | Yes | Yes | Planned | Expo/runtime-dependent | Partial |
+| Cloudflare Workers | Yes | Yes | Planned | Wrangler/target-dependent | Yes |
+| Supabase | Yes | Yes | Planned | Credentials/environment-dependent | Yes |
+| Firebase | Yes | Yes | Planned | Credentials/environment-dependent | Partial |
+| Docker | Yes | Yes | Planned | Docker-dependent | Partial |
+| Terraform | Yes | Yes | Planned | CLI/provider-dependent | Partial |
+| GitHub Actions | Yes | Yes | Planned | GitHub access-dependent | Yes |
 
-Sills supports shared evidence records, deterministic finding identities, finding confidence, categorical coverage, audit trends, machine-readable risk profiles, Markdown reports, and remediation handoff plans. HTML rendering is planned through Nizel after its CLI release is published.
+`Partial` means useful coverage exists but the complete collector or specialist model is not yet implemented.
 
-## Unsupported or partial areas
+## Ecosystem identification
 
-Sills does not claim complete runtime coverage without a usable runtime target and the required roles or sessions. Native simulators, authenticated workflows, external scanners, production access, and platform-specific tooling depend on the invoking environment and must be recorded as capabilities or limitations.
+Sills also identifies Rust, Go, Python, PHP, Ruby, and .NET repositories. These ecosystems do not yet have complete normalized and collected knowledge support.
 
-## Planned built-in support
+## Audit Skills
 
-Near-term support includes full normalized adapters and collectors for React, Next.js, Angular, SvelteKit, Firebase, Electron, React Native, Expo, Docker, Terraform, and GitHub Actions. The broader order is documented in `docs/roadmap/platform-support.md`.
+The suite provides the umbrella orchestrator and specialist Audit Skills for accessibility, product experience, content, architecture, security, performance, design systems, release readiness, localization, testing strategy, privacy and trust, SEO, API design, and agent readiness.
+
+The umbrella discovers once, recommends relevant specialists, asks for explicit selection when the request is generic, gathers shared evidence and knowledge once, and coordinates only selected audits.
+
+## Evidence, findings, and reporting
+
+Sills supports shared evidence records, deterministic finding identities, confidence separate from severity, categorical coverage, audit trends, machine-readable risk profiles, Markdown reports, and remediation handoffs. HTML report generation is provided through the Nizel rendering pipeline when the Nizel CLI is available.
+
+## Environment-dependent coverage
+
+Sills does not claim complete runtime coverage without usable targets, roles, sessions, simulators, credentials, and tools. Missing capabilities must result in reduced coverage, manual review, or explicit skips rather than invented results.
