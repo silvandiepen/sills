@@ -1,5 +1,7 @@
 # Remediation engine plan
 
+> **Architecture decided:** see [ADR 0003](../decisions/0003-remediation-architecture.md) — one `sills-remediate` engine + thin domain profiles (`sills-fix-*`). This document records the original workflow and safety-level design; the ADR is authoritative on structure and resolved parameters.
+
 ## Principle
 
 Keep Sills audits report-only. Remediation is a separate consumer of `report.json`, evidence, tasks, and verification instructions.
