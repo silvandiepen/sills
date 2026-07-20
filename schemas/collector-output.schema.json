@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sills.dev/schemas/collector-output.schema.json",
+  "title": "Sills collector output",
+  "description": "Structured result emitted by a runnable evidence collector. Collectors gather evidence; they never assert findings or approve releases. A clean or empty result is not proof of quality.",
+  "type": "object",
+  "required": ["collector", "toolAvailable", "ranAt", "observations", "evidence", "limitations"],
+  "properties": {
+    "collector": { "type": "string", "minLength": 1 },
+    "tool": { "type": ["string", "null"] },
+    "toolVersion": { "type": ["string", "null"] },
+    "toolAvailable": { "type": "boolean" },
+    "ranAt": { "type": "string", "format": "date-time" },
+    "target": { "type": "string" },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule", "metric"],
+        "properties": {
+          "rule": { "type": "string", "minLength": 1 },
+          "location": { "type": "string" },
+          "metric": { "type": "string" },
+          "value": {},
+          "threshold": {},
+          "severityHint": { "enum": ["critical", "major", "moderate", "minor", "observation"] },
+          "confidenceHint": { "enum": ["confirmed", "high", "medium", "low", "requires-manual-verification"] },
+          "note": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "evidence-record.schema.json" }
+    },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

@@ -21,7 +21,9 @@ const names = [
   "sills-audit-privacy-and-trust",
   "sills-audit-seo",
   "sills-audit-api-design",
-  "sills-audit-agent-readiness"
+  "sills-audit-agent-readiness",
+  "sills-audit-code-quality",
+  "sills-audit-apple-review"
 ];
 const packages = [
   { skillName: 'sills', packageRoot: selfRoot },

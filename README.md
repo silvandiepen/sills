@@ -75,6 +75,8 @@ Mode and depth are independent. A run may be `source + deep`, `full + standard`,
 | `sills-audit-seo` | Crawlability, metadata, structured data and discoverability |
 | `sills-audit-api-design` | API contracts, consistency, lifecycle, errors and DX |
 | `sills-audit-agent-readiness` | Agent instructions, context, workflows and documentation drift |
+| `sills-audit-code-quality` | Complexity, duplication, dead code, dependencies and language idioms |
+| `sills-audit-apple-review` | Pre-submission App Store review readiness for native and hybrid apps |
 
 Auditing is the first application of the Sills knowledge and evidence model. Future Skill categories may consume the same contracts for safe fixes, planning, migrations, documentation, and project understanding.
 
@@ -147,7 +149,7 @@ Public website content lives in [`web/docs`](web/docs).
 
 ## Status
 
-Sills is an open-source beta. The repository provides fourteen specialist Audit Skills, a selective umbrella orchestrator, built-in platform discovery, shared knowledge and evidence contracts, report schemas, audit scaffolding, fixtures, CI, Cloudflare deployment, and npm release automation. Audit quality still depends on the capabilities available to the invoking agent and environment, so every report must state its coverage and limitations.
+Sills is an open-source beta. The repository provides sixteen specialist Audit Skills, a selective umbrella orchestrator, built-in platform discovery, shared knowledge and evidence contracts, report schemas, audit scaffolding, fixtures, CI, Cloudflare deployment, and npm release automation. Audit quality still depends on the capabilities available to the invoking agent and environment, so every report must state its coverage and limitations.
 
 ## License
 

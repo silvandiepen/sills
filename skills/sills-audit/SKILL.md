@@ -51,6 +51,8 @@ When invoked as `$sills`, treat the first words after the skill name as a compac
 - `audit testing`: run or plan only `$sills-audit-testing-strategy`.
 - `audit localization` or `audit i18n`: run or plan only `$sills-audit-localization`.
 - `audit agent-readiness`, `audit agents`, or `audit agent`: run or plan only `$sills-audit-agent-readiness`.
+- `audit code-quality`, `audit code quality`, or `audit quality`: run or plan only `$sills-audit-code-quality`.
+- `audit apple`, `audit apple-review`, or `audit app-store`: run or plan only `$sills-audit-apple-review`.
 
 For example, `$sills audit api` means an API design audit. If the shortcut omits depth, ask for `quick`, `standard`, or `deep` unless the surrounding request clearly implies it.
 
@@ -140,6 +142,8 @@ Write the selected depth, resolved selection, capabilities, shared evidence plan
 - `$sills-audit-seo`
 - `$sills-audit-api-design`
 - `$sills-audit-agent-readiness`
+- `$sills-audit-code-quality`
+- `$sills-audit-apple-review`
 
 Read only the selected specialist methodologies and references relevant to the discovered scope.
 
@@ -187,5 +191,5 @@ Before writing output, read `references/report-contract.md` and use the bundled 
 - When selected runtime-capable audits need a URL and none is documented, ask once for the relevant local, preview, staging, or production targets and roles.
 - In CI mode, never prompt; record missing runtime targets as limitations.
 
-Recommended status dimensions are limited to the selected audits and may include Accessibility; Product experience; Content quality; Codebase architecture; Security; Performance; Design system; Release readiness; Localization; Testing strategy; Privacy and trust; SEO; API design; Agent readiness.
+Recommended status dimensions are limited to the selected audits and may include Accessibility; Product experience; Content quality; Codebase architecture; Security; Performance; Design system; Release readiness; Localization; Testing strategy; Privacy and trust; SEO; API design; Agent readiness; Code quality; Apple review readiness.
 <!-- sills:shared-report-contract:end -->

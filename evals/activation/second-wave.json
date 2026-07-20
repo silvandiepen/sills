@@ -24,6 +24,12 @@
     {"prompt":"Fix every seo issue in the code.","expectedSkill":"sills-audit-seo","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
     {"prompt":"Use $sills-audit-api-design to audit this repository.","expectedSkill":"sills-audit-api-design","shouldActivate":true},
     {"prompt":"Review the project for api design risks and write a report only.","expectedSkill":"sills-audit-api-design","shouldActivate":true},
-    {"prompt":"Fix every api design issue in the code.","expectedSkill":"sills-audit-api-design","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."}
+    {"prompt":"Fix every api design issue in the code.","expectedSkill":"sills-audit-api-design","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
+    {"prompt":"Use $sills-audit-code-quality to audit this repository.","expectedSkill":"sills-audit-code-quality","shouldActivate":true},
+    {"prompt":"Review the project for complexity, duplication, and dead-code risks and write a report only.","expectedSkill":"sills-audit-code-quality","shouldActivate":true},
+    {"prompt":"Fix every complexity and duplication issue in the code.","expectedSkill":"sills-audit-code-quality","shouldActivate":false,"reason":"Audit skills are report-only and should not own remediation."},
+    {"prompt":"Use $sills-audit-apple-review to audit this repository.","expectedSkill":"sills-audit-apple-review","shouldActivate":true},
+    {"prompt":"Review the project for likely App Store rejection reasons and write a report only.","expectedSkill":"sills-audit-apple-review","shouldActivate":true},
+    {"prompt":"Submit the app to App Store Connect and fix any rejection.","expectedSkill":"sills-audit-apple-review","shouldActivate":false,"reason":"Audit skills are report-only and never submit or change App Store Connect state."}
   ]
 }

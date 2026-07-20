@@ -1,0 +1,40 @@
+{
+  "name": "sills-audit-code-quality",
+  "version": "0.1.0",
+  "description": "Complexity, duplication, dead code, dependency, and language-idiom code-quality audit",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "sills-audit-code-quality": "bin/install.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "bin",
+    "references",
+    "scripts",
+    "templates",
+    "agents",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "sills-audit-installer": "0.1.1"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude",
+    "codex",
+    "audit",
+    "code-quality",
+    "complexity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/sills.git",
+    "directory": "skills/sills-audit-code-quality"
+  },
+  "homepage": "https://github.com/silvandiepen/sills/tree/main/skills/sills-audit-code-quality"
+}
