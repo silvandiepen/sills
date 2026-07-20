@@ -4,18 +4,18 @@
     "light": #fcfcf5,
     "accent-dark": #0f1827,
     "accent-light": #fcfcf5,
-    "primary": #98cc65,
+    "primary": #697b0c,
     "secondary": #67b5d8,
     "tertiary": #d865a6,
-    "quaternary": #fee165,
+    "quaternary": #f6bc51,
     "green": #98cc65,
     "pink": #d865a6,
     "blue": #67b5d8,
-    "yellow": #fee165,
+    "yellow": #f6bc51,
     "ink": #0f1827,
     "cream": #fcfcf5,
     "success": #98cc65,
-    "warning": #fee165,
+    "warning": #f6bc51,
     "error": #d865a6,
     "info": #67b5d8,
     "border": #e6e6dc,
@@ -24,11 +24,11 @@
 @use "@sil/ui/styles/main";
 
 :root {
-  --palette-green: #98cc65;
+  --palette-green: #3da94a;
   --palette-pink: #d865a6;
   --palette-ink: #0f1827;
   --palette-cream: #fcfcf5;
-  --palette-yellow: #fee165;
+  --palette-yellow: #f6bc51;
   --palette-blue: #67b5d8;
   --color-green: var(--palette-green);
   --color-green-text: var(--palette-ink);
@@ -65,8 +65,8 @@
   --color-text: color-mix(in srgb, var(--palette-ink), var(--palette-cream) 18%);
   --color-muted: color-mix(in srgb, var(--palette-ink), var(--palette-cream) 44%);
   --color-border: color-mix(in srgb, var(--palette-ink), var(--palette-cream) 84%);
-  --color-accent: color-mix(in srgb, var(--palette-green), var(--palette-ink) 22%);
-  --color-accent-strong: color-mix(in srgb, var(--palette-green), var(--palette-ink) 48%);
+  --color-accent: color-mix(in srgb, var(--palette-yellow), var(--palette-ink) 22%);
+  --color-accent-strong: color-mix(in srgb, var(--palette-yellow), var(--palette-ink) 48%);
   --color-code: var(--palette-ink);
   --color-code-text: var(--palette-cream);
   --color-inline-code: color-mix(in srgb, var(--color-accent), transparent 90%);

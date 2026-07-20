@@ -42,9 +42,10 @@ const bemm = useBemm("site-header", { includeBaseClass: true });
 
 <style lang="scss">
 .site-header {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   background: var(--color-header);
   color: var(--color-heading);
 }
