@@ -1,9 +1,9 @@
 <template>
   <main :class="bemm()">
     <HeroSection />
-    <MetricsSection />
     <DiscoverySection />
     <SkillsSection :skills="skills" />
+    <MetricsSection />
     <ReportsSection />
     <DocsSection :featured-docs="featuredDocs" />
   </main>

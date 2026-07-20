@@ -1,0 +1,6 @@
+interface:
+  display_name: "Apple Review Audit"
+  short_description: "Pre-submission App Store review-readiness audit for native and hybrid apps."
+  default_prompt: "Use $sills-audit-apple-review to audit this project for likely App Store rejection reasons and write a complete dated report without modifying the product or contacting App Store Connect."
+policy:
+  allow_implicit_invocation: true

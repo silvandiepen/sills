@@ -1,6 +1,6 @@
 ---
 title: Skills
-description: Choose the complete Sills audit or one of fourteen specialist audit skills.
+description: Choose the complete Sills audit or one of sixteen specialist audit skills.
 slug: /skills
 section: Skills
 order: 1

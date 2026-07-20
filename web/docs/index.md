@@ -6,9 +6,9 @@ section: Home
 order: 1
 ---
 
-# Audit the whole product, not just a checklist
+# Audit the whole codebase, not just a checklist
 
-Sills is a suite of report-only Agent Skills for Claude Code and Codex. It investigates fourteen specialist disciplines across source code and running products, then combines the evidence into reports another agent can use for remediation.
+Sills is a suite of report-only Agent Skills for Claude Code and Codex. It investigates sixteen specialist disciplines across source code and running products, then combines the evidence into reports another agent can use for remediation.
 
 A Sills audit starts by discovering what the product is, who uses it, how it is structured, which workflows matter, and what documentation already says. It then gathers evidence, records coverage, separates facts from judgement, preserves positive patterns, and states what could not be tested.
 

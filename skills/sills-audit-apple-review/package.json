@@ -1,0 +1,40 @@
+{
+  "name": "sills-audit-apple-review",
+  "version": "0.1.0",
+  "description": "Pre-submission Apple App Store review-readiness audit for native and hybrid apps",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "sills-audit-apple-review": "bin/install.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "bin",
+    "references",
+    "scripts",
+    "templates",
+    "agents",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "sills-audit-installer": "0.1.1"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude",
+    "codex",
+    "audit",
+    "apple",
+    "app-store"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/sills.git",
+    "directory": "skills/sills-audit-apple-review"
+  },
+  "homepage": "https://github.com/silvandiepen/sills/tree/main/skills/sills-audit-apple-review"
+}

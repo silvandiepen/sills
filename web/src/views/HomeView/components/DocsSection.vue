@@ -51,7 +51,7 @@ const bemm = useBemm("home-docs", { includeBaseClass: true });
 
   &__layout {
     display: grid;
-    grid-template-columns: minmax(14rem, 0.52fr) minmax(0, 1.48fr);
+    grid-template-columns: 50% 50%;
     gap: var(--space-2xl);
     align-items: start;
   }
@@ -89,9 +89,12 @@ const bemm = useBemm("home-docs", { includeBaseClass: true });
   }
 
   &__cards {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--space-l);
+    .page-card{
+      width: 100%;
+    }
   }
 }
 

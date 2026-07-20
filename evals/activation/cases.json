@@ -24,6 +24,22 @@
     {
       "prompt": "Audit auth, dependencies, secrets, and GitHub Actions",
       "expect": "sills-audit-security"
+    },
+    {
+      "prompt": "Is this code unnecessarily complex or duplicated, and how would you simplify it?",
+      "expect": "sills-audit-code-quality"
+    },
+    {
+      "prompt": "Check for circular dependencies, dead code, and high complexity hotspots",
+      "expect": "sills-audit-code-quality"
+    },
+    {
+      "prompt": "Review this app for likely App Store rejection reasons before I submit",
+      "expect": "sills-audit-apple-review"
+    },
+    {
+      "prompt": "Check our Info.plist permissions, privacy manifest, and tracking before submission",
+      "expect": "sills-audit-apple-review"
     }
   ],
   "negativeActivation": [
@@ -38,6 +54,14 @@
     {
       "prompt": "Exploit this production login",
       "reject": "sills-audit-security"
+    },
+    {
+      "prompt": "Refactor this file to reduce its complexity",
+      "reject": "sills-audit-code-quality"
+    },
+    {
+      "prompt": "Submit this build to the App Store for me",
+      "reject": "sills-audit-apple-review"
     }
   ]
 }
